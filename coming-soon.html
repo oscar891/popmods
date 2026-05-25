@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PopMods — Coming Soon</title>
+  <meta name="description" content="Kit cassa e bracciale in bioceramic per il Swatch × Audemars Piguet Royal Pop." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --sans:    "Inter", Arial, sans-serif;
+      --display: "Bricolage Grotesque", "Inter", sans-serif;
+      --black:   #171717;
+      --white:   #F8F4EC;
+      --off:     #FFFDF8;
+      --gray:    #6B6B6B;
+      --border:  #E6DDD0;
+      --accent:  #FF5FA2;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV (identico al sito principale) ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 72px;
+      background: rgba(248,244,236,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Logo (identico) */
+    .nav-logo {
+      text-decoration: none;
+      display: inline-flex; align-items: stretch;
+      border: 2.5px solid var(--black);
+      border-radius: 6px;
+      box-shadow: 3px 3px 0 var(--black);
+      overflow: hidden;
+      font-size: 0;
+    }
+    .logo-chunk {
+      font-family: var(--display);
+      font-weight: 800; font-size: 16px;
+      letter-spacing: 0.02em;
+      line-height: 1; padding: 7px 11px;
+      color: var(--black); display: flex; align-items: center;
+    }
+    .logo-p  { background: #FF5FA2; }
+    .logo-o1 { background: #C7FF3D; }
+    .logo-p2 { background: #244CFF; color: #fff; }
+    .logo-m  { background: #FFB84D; }
+    .logo-o2 { background: #FF5FA2; }
+    .logo-d  { background: #C7FF3D; }
+    .logo-s  { background: #244CFF; color: #fff; }
+
+    .nav-right {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .nav-domain {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray);
+    }
+    .lang-toggle { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray); padding: 2px 0; transition: color 0.2s;
+    }
+    .lang-btn:hover { color: var(--black); }
+    .lang-btn.active { color: var(--accent); border-bottom: 1.5px solid var(--accent); }
+    .lang-sep { font-size: 11px; color: var(--border); }
+
+    /* ── HERO (identico al sito principale) ── */
+    .hero {
+      margin-top: 72px;
+      height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-img {
+      overflow: hidden; background: #EDE8E0; position: relative;
+    }
+    .hero-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    .hero-body {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 64px; background: var(--white);
+      gap: 0;
+    }
+
+    .hero-label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(38px, 4.5vw, 64px);
+      font-weight: 800; line-height: 1.05;
+      margin-bottom: 28px; letter-spacing: -0.02em;
+    }
+    .hero-title em { font-style: italic; color: var(--accent); }
+
+    .hero-sub {
+      font-size: 15px; font-weight: 300;
+      color: var(--gray); max-width: 400px;
+      margin-bottom: 48px; line-height: 1.75;
+    }
+
+    /* ── COMING SOON (sostituisce il btn del sito) ── */
+    .coming-soon {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      border: 2px solid var(--black);
+      padding: 28px 24px;
+      gap: 8px;
+    }
+    .cs-label {
+      font-family: var(--sans);
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gray);
+    }
+    .cs-text {
+      font-family: var(--display);
+      font-size: clamp(28px, 2.8vw, 40px);
+      font-weight: 800; letter-spacing: -0.01em;
+      color: var(--black); line-height: 1;
+    }
+
+    /* ── FOOTER NOTE ── */
+    .foot-note {
+      margin-top: 28px;
+      font-size: 11px; color: var(--gray);
+      text-align: center; line-height: 1.6;
+    }
+    .foot-note a {
+      color: var(--gray); text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── MOBILE (identico al sito) ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-domain { display: none; }
+      .lang-toggle { gap: 6px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .hero-img { height: 70vw; }
+      .hero-body { padding: 48px 24px; }
+
+      .cs-text { font-size: clamp(26px, 7vw, 36px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="logo-chunk logo-p">P</span><span class="logo-chunk logo-o1">o</span><span class="logo-chunk logo-p2">p</span><span class="logo-chunk logo-m">M</span><span class="logo-chunk logo-o2">o</span><span class="logo-chunk logo-d">d</span><span class="logo-chunk logo-s">s</span>
+  </a>
+  <div class="nav-right">
+    <span class="nav-domain">royalpopwatch.store</span>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+
+  <div class="hero-img">
+    <img src="immagini/hero.jpg" alt="Royal Pop Kit — PopMods" />
+  </div>
+
+  <div class="hero-body">
+    <p class="hero-label">
+      <span class="it-inline">Accessori Premium &middot; Royal Pop</span>
+      <span class="en-inline">Premium Accessories &middot; Royal Pop</span>
+    </p>
+    <h1 class="hero-title">
+      <span class="it-inline">Dal pocket watch<br>al tuo <em>polso</em>.</span>
+      <span class="en-inline">From pocket watch<br>to your <em>wrist</em>.</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="it-inline">Kit cassa e bracciale in bioceramic di qualità superiore per il Swatch &times; Audemars Piguet Royal Pop. Eleganza da indossare, semplicità da assemblare.</span>
+      <span class="en-inline">A premium bioceramic case and bracelet kit for the Swatch &times; Audemars Piguet Royal Pop. Beautifully made. Snaps on in seconds.</span>
+    </p>
+
+    <div class="coming-soon">
+      <span class="cs-label">
+        <span class="it-inline">Disponibile presto</span>
+        <span class="en-inline">Available soon</span>
+      </span>
+      <span class="cs-text">Coming Soon</span>
+    </div>
+
+    <p class="foot-note">
+      <span class="it-inline">Un progetto indipendente. Non affiliato a Swatch o Audemars Piguet.</span>
+      <span class="en-inline">An independent project. Not affiliated with Swatch or Audemars Piguet.</span>
+    </p>
+  </div>
+
+</section>
+
+
+<script>
+  function setLang(lang) {
+    const isEN = lang === 'en';
+    document.querySelectorAll('.it-inline').forEach(el => el.style.display = isEN ? 'none' : 'inline');
+    document.querySelectorAll('.en-inline').forEach(el => el.style.display = isEN ? 'inline' : 'none');
+    document.getElementById('btn-it').classList.toggle('active', !isEN);
+    document.getElementById('btn-en').classList.toggle('active', isEN);
+    document.documentElement.lang = lang;
+  }
+
+  (function detectAndSetLang() {
+    const browserLang = (navigator.language || navigator.userLanguage || 'it').toLowerCase();
+    const fallback = browserLang.startsWith('it') ? 'it' : 'en';
+    setLang(fallback);
+    fetch('https://ipapi.co/json/')
+      .then(r => r.json())
+      .then(data => { setLang(data.country_code === 'IT' ? 'it' : 'en'); })
+      .catch(() => {});
+  })();
+</script>
+</body>
+</html>

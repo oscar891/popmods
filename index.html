@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PopMods — Custom Royal Pop Cases & Bracelets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║                    ⚙️  CONFIGURAZIONE POPMODS                    ║
+║  Modifica solo questa sezione per aggiornare tutto il sito.      ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<script>
+const CONFIG = {
+
+  // ── BRAND ─────────────────────────────────────────────────────
+  brand: {
+    nome:              "PopMods",
+    tagline_it:        "Personalizza il tuo Royal Pop.",
+    tagline_en:        "Customize your Royal Pop.",
+    email:             "",
+    instagram_url:     "https://royalpopwatch.com",
+    instagram_handle:  "@popmods",
+    anno_copyright:    "2026",
+    tracker_url:       "https://royalpopwatch.com",
+  },
+
+  // ── COLORI ────────────────────────────────────────────────────
+  colori: {
+    sfondo:            "#F8F4EC",
+    testo:             "#171717",
+    grigio:            "#6B6B6B",
+    sfondo_secondario: "#FFFDF8",
+    bordo:             "#E6DDD0",
+    sfondo_scuro:      "#171717",
+    accent:            "#FF5FA2",
+    accent2:           "#C7FF3D",
+    accent3:           "#244CFF",
+  },
+
+  // ── HERO ──────────────────────────────────────────────────────
+  hero: {
+    video:        "",
+    immagine:     "immagini/hero.jpg",
+    label_it:     "Accessori Premium · Royal Pop",
+    label_en:     "Premium Accessories · Royal Pop",
+    titolo_it:    "Dal pocket watch<br>al tuo <em>polso</em>.",
+    titolo_en:    "From pocket watch<br>to your <em>wrist</em>.",
+    testo_it:     "Kit cassa e bracciale in bioceramic di qualità superiore per il Swatch × Audemars Piguet Royal Pop. Eleganza da indossare, semplicità da assemblare.",
+    testo_en:     "A premium bioceramic case and bracelet kit for the Swatch × Audemars Piguet Royal Pop. Beautifully made. Snaps on in seconds.",
+    cta_it:       "Scopri la collezione",
+    cta_en:       "Explore the collection",
+  },
+
+  // ── BANNER ────────────────────────────────────────────────────
+  banner: {
+    it: "Disponibile ora · Spedizione in 48h · Compatibile con tutti gli 8 colorway ufficiali",
+    en: "In stock now · Ships in 48h · Compatible with all 8 official colorways",
+  },
+
+  // ── TRUST BADGES ─────────────────────────────────────────────
+  trust: [
+    { icon: "⚡", it: "Spedito in 48h",       en: "Ships in 48h"         },
+    { icon: "🔄", it: "30 secondi per cambiarlo", en: "30 sec to swap"    },
+    { icon: "🛡️", it: "Garanzia 12 mesi",     en: "12-month warranty"    },
+    { icon: "✉️", it: "Assistenza diretta",    en: "Direct support"       },
+  ],
+
+  // ── FAQ ───────────────────────────────────────────────────────
+  faq: [
+    {
+      q_it: "È compatibile con tutti gli 8 colorway del Royal Pop?",
+      q_en: "Is it compatible with all 8 Royal Pop colorways?",
+      a_it: "Sì. I kit PopMods sono progettati per il Royal Pop 40mm in bioceramic. Funzionano con tutti gli 8 modelli ufficiali Swatch × Audemars Piguet.",
+      a_en: "Yes. PopMods kits are designed for the 40mm bioceramic Royal Pop and work with all 8 official Swatch × Audemars Piguet models.",
+    },
+    {
+      q_it: "Devo modificare o forare il mio orologio?",
+      q_en: "Do I need to modify or drill my watch?",
+      a_it: "No. Il kit si assembla in 30 secondi senza attrezzi e non lascia segni sul bioceramic. Si monta e smonta quante volte vuoi.",
+      a_en: "No. The kit snaps on in 30 seconds with no tools and leaves no marks on the bioceramic. You can swap it on and off as many times as you like.",
+    },
+    {
+      q_it: "Qual è la differenza tra ceramica e resina?",
+      q_en: "What is the difference between ceramic and resin?",
+      a_it: "I kit in ceramica (bioceramic) replicano fedelmente il materiale originale: più duri, più pesanti, premium. I kit in resina sono più leggeri e accessibili, stessa estetica.",
+      a_en: "Bioceramic kits closely match the original material — harder, heavier, and premium in feel. Resin kits are lighter and more affordable, with the same aesthetic.",
+    },
+    {
+      q_it: "Quanto tempo ci vuole per ricevere il kit?",
+      q_en: "How long does shipping take?",
+      a_it: "Spediamo entro 48h dall'ordine. I tempi di consegna in Europa sono 3–5 giorni lavorativi. Spediamo in tutto il mondo.",
+      a_en: "We ship within 48h of your order. Delivery in Europe takes 3–5 business days. We ship worldwide.",
+    },
+    {
+      q_it: "PopMods è affiliata a Swatch o Audemars Piguet?",
+      q_en: "Is PopMods affiliated with Swatch or Audemars Piguet?",
+      a_it: "No. PopMods è un brand indipendente di accessori aftermarket. \"Royal Pop\", \"Swatch\" e \"Audemars Piguet\" sono marchi dei rispettivi proprietari, citati esclusivamente per indicare la compatibilità.",
+      a_en: "No. PopMods is an independent aftermarket accessories brand. \"Royal Pop\", \"Swatch\" and \"Audemars Piguet\" are trademarks of their respective owners, referenced solely to indicate compatibility.",
+    },
+  ],
+
+  // ── PRODOTTI ──────────────────────────────────────────────────
+  prodotti: [
+    {
+      immagini:     ["immagini/prod-01.jpg"],
+      nome:         "OTG ROZ Kit",
+      materiale_it: "CERAMICA",
+      materiale_en: "CERAMIC",
+      desc_it:      "Case rosa + bezel giallo + bracciale rosa. La combo più audace.",
+      desc_en:      "Pink case + yellow bezel + pink bracelet. The boldest combo.",
+      dettaglio_it: "Il kit più iconico della collezione. Case e bracciale in bioceramic rosa con bezel giallo a contrasto — la palette che ha definito il lancio del Royal Pop. Materiale: bioceramic premium, lo stesso composto ceramico-polimerico dell'orologio originale. Assemblaggio in 30 secondi, senza attrezzi. Compatibile con tutti i Royal Pop 40mm Swatch × Audemars Piguet.",
+      dettaglio_en: "The most iconic kit in the collection. Pink bioceramic case and bracelet with a contrasting yellow bezel — the palette that defined the Royal Pop launch. Material: premium bioceramic, the same ceramic-polymer compound as the original watch. Snaps on in 30 seconds, no tools needed. Compatible with all 40mm Swatch × Audemars Piguet Royal Pop models.",
+      prezzo:       120,
+      badge:        "Best Seller",
+      badge_color:  "#FF5FA2",
+      cta_url:      "",
+    },
+    {
+      immagini:     ["immagini/prod-02.jpg"],
+      nome:         "Blue Ocean Kit",
+      materiale_it: "CERAMICA",
+      materiale_en: "CERAMIC",
+      desc_it:      "Set completo in bioceramic blu. Matching perfetto con Blaue Acht.",
+      desc_en:      "Full bioceramic blue set. Perfect match for Blaue Acht.",
+      dettaglio_it: "Case, bezel e bracciale in bioceramic blu profondo — un total look che esalta il quadrante blu del colorway Blaue Acht. La finitura è uniforme e coerente con il materiale originale, per un risultato senza compromessi. Kit in ceramica premium, garanzia 12 mesi, spedizione in 48h.",
+      dettaglio_en: "Case, bezel and bracelet in deep blue bioceramic — a full look that perfectly complements the blue dial of the Blaue Acht colorway. The finish is uniform and consistent with the original material, for a seamless result. Premium ceramic kit, 12-month warranty, ships in 48h.",
+      prezzo:       120,
+      badge:        "New",
+      badge_color:  "#244CFF",
+      cta_url:      "",
+    },
+    {
+      immagini:     ["immagini/prod-03.jpg"],
+      nome:         "Rosa Vivo Kit",
+      materiale_it: "CERAMICA",
+      materiale_en: "CERAMIC",
+      desc_it:      "Case + bracciale rosa con bezel rosso. Icona del lancio.",
+      desc_en:      "Pink case and bracelet with a red bezel. A true launch statement.",
+      dettaglio_it: "Rosa vivo e rosso acceso: una dichiarazione cromatica senza filtri. Il kit abbina case e bracciale in bioceramic rosa a un bezel rosso intenso per un contrasto audace. Stessa qualità ceramica premium degli altri kit. Nessuna modifica all'orologio, nessun attrezzo. Solo stile.",
+      dettaglio_en: "Vivid pink and bold red: a statement with no apologies. The kit pairs a pink bioceramic case and bracelet with a deep red bezel for a striking contrast. Same premium ceramic quality as the rest of the collection. No modifications to your watch, no tools required. Just style.",
+      prezzo:       120,
+      badge:        "",
+      badge_color:  "#FF5FA2",
+      cta_url:      "",
+    },
+    {
+      immagini:     ["immagini/prod-04.jpg"],
+      nome:         "Lime Pop Kit",
+      materiale_it: "RESINA",
+      materiale_en: "RESIN",
+      desc_it:      "Case + bracciale verde lime in resina leggera. Stessa estetica, prezzo accessibile.",
+      desc_en:      "Lime green resin case and bracelet. The same look, at a lighter price.",
+      dettaglio_it: "La versione in resina della collezione PopMods: stessa estetica, peso ridotto e prezzo più accessibile. Il verde lime è energico e immediato. Ideale se vuoi cambiare look al Royal Pop senza investire nel kit ceramico. Compatibile con tutti i colorway ufficiali Swatch × Audemars Piguet.",
+      dettaglio_en: "The resin version of the PopMods collection: same aesthetic, lighter weight, more accessible price. Lime green is bold and immediate. Perfect if you want to change up your Royal Pop without committing to the ceramic kit. Compatible with all official Swatch × Audemars Piguet colorways.",
+      prezzo:       120,
+      badge_it:     "Resina",
+      badge_en:     "Resin",
+      badge_color:  "#C7FF3D",
+      cta_url:      "",
+    },
+  ],
+
+  // ── ABOUT ─────────────────────────────────────────────────────
+  about: {
+    immagine:     "immagini/prod-01.jpg",
+    titolo_it:    "Manifattura bioceramic. Lo stesso materiale dell'originale.",
+    titolo_en:    "Bioceramic craftsmanship. The same material as the original.",
+    testo_it:     "Il Royal Pop è già un oggetto straordinario: bioceramic 40mm, movimento meccanico Sistem51, edizione limitata Swatch × Audemars Piguet. PopMods nasce per esaltarlo — non per cambiarlo. Ogni kit è realizzato in bioceramic di qualità superiore, lo stesso composto ceramico-polimerico dell'originale, lavorato con tolleranze precise al decimo di millimetro. Il risultato è un fit perfetto, una finitura coerente, un'estetica che rispetta l'opera di partenza.",
+    testo_en:     "The Royal Pop is already something special: 40mm bioceramic, Sistem51 mechanical movement, a limited edition from Swatch × Audemars Piguet. PopMods exists to enhance it — not to alter it. Every kit is crafted in superior-grade bioceramic, the same ceramic-polymer compound as the original, machined to within a tenth of a millimetre. The result is a perfect fit, a seamless finish, and an aesthetic that stays true to the original.",
+    cta_it:       "",
+    cta_en:       "",
+    cta_url:      "",
+  },
+
+  // ── PROCESSO ──────────────────────────────────────────────────
+  processo: [
+    {
+      num:      "01",
+      titolo_it: "Scegli il kit",
+      titolo_en: "Choose your kit",
+      testo_it:  "Seleziona il colore e il materiale che rappresenta il tuo stile. Ceramica premium o resina leggera.",
+      testo_en:  "Pick the color and material that fits your style. Premium bioceramic or lightweight resin.",
+    },
+    {
+      num:      "02",
+      titolo_it: "Ordina e aspetta (poco)",
+      titolo_en: "Order — we'll take it from here",
+      testo_it:  "Paghi online, confermiamo entro 24h. Spediamo in tutta Europa in 3–5 giorni lavorativi.",
+      testo_en:  "Pay online and we'll confirm within 24 hours. Delivery across Europe in 3–5 business days.",
+    },
+    {
+      num:      "03",
+      titolo_it: "Snap & Wear",
+      titolo_en: "Snap & Wear",
+      testo_it:  "Assembla il kit in 30 secondi, senza attrezzi. Il tuo Royal Pop si trasforma — e puoi cambiarlo ogni giorno.",
+      testo_en:  "Snap the kit in 30 seconds, no tools needed. Your Royal Pop transforms — and you can change it every day.",
+    },
+  ],
+};
+</script>
+
+<style>
+  /* ── RESET & VARIABILI ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --sans:   "Inter", Arial, sans-serif;
+    --display: "Bricolage Grotesque", "Inter", sans-serif;
+    --black:  #171717;
+    --white:  #F8F4EC;
+    --off:    #FFFDF8;
+    --gray:   #6B6B6B;
+    --border: #E6DDD0;
+    --accent: #FF5FA2;
+    --accent2: #C7FF3D;
+    --accent3: #244CFF;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 72px;
+    background: rgba(248, 244, 236, 0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    transition: background 0.4s ease;
+  }
+
+  .nav-left { display: flex; align-items: center; gap: 48px; }
+
+  .nav-logo {
+    text-decoration: none;
+    display: inline-flex; align-items: stretch;
+    border: 2.5px solid var(--black);
+    border-radius: 6px;
+    box-shadow: 3px 3px 0 var(--black);
+    overflow: hidden;
+    transition: box-shadow 0.15s, transform 0.15s;
+    flex-shrink: 0;
+  }
+  .nav-logo:hover {
+    box-shadow: 5px 5px 0 var(--black);
+    transform: translate(-1px, -1px);
+  }
+  .logo-chunk {
+    font-family: var(--display);
+    font-weight: 800; font-size: 16px;
+    letter-spacing: 0.02em;
+    line-height: 1; padding: 7px 11px;
+    color: var(--black); display: flex; align-items: center;
+  }
+  .logo-p  { background: #FF5FA2; }
+  .logo-o1 { background: #C7FF3D; }
+  .logo-p2 { background: #244CFF; color: #fff; }
+  .logo-m  { background: #FFB84D; }
+  .logo-o2 { background: #FF5FA2; }
+  .logo-d  { background: #C7FF3D; }
+  .logo-s  { background: #244CFF; color: #fff; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+
+  .nav-links a {
+    position: relative; text-decoration: none;
+    color: var(--black); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 2px;
+  }
+
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -1px; left: 0;
+    width: 100%; height: 1.5px; background: var(--accent);
+    transform: scaleX(0); transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+
+  .lang-toggle { display: flex; align-items: center; gap: 4px; }
+
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gray); padding: 2px 0; transition: color 0.2s;
+  }
+
+  .lang-btn:hover { color: var(--black); }
+  .lang-btn.active { color: var(--accent); border-bottom: 1.5px solid var(--accent); }
+  .lang-sep { font-size: 11px; color: var(--border); }
+
+  .currency-toggle { display: flex; align-items: center; gap: 4px; }
+  .currency-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gray); padding: 2px 0; transition: color 0.2s;
+  }
+  .currency-btn:hover { color: var(--black); }
+  .currency-btn.active { color: var(--accent); border-bottom: 1.5px solid var(--accent); }
+  .currency-sep { font-size: 11px; color: var(--border); }
+
+  /* Hamburger */
+  .hamburger {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; width: 24px; height: 24px;
+    background: none; border: none; cursor: pointer; padding: 0;
+  }
+  .hamburger span {
+    display: block; width: 100%; height: 1.5px;
+    background: var(--black); transition: all 0.3s ease; transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .mobile-menu {
+    display: none; position: fixed;
+    top: 72px; left: 0; right: 0; bottom: 0;
+    background: var(--white); z-index: 99;
+    flex-direction: column; padding: 48px 32px;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: all; }
+  .mobile-menu ul { list-style: none; }
+  .mobile-menu ul li { border-bottom: 1px solid var(--border); }
+  .mobile-menu ul li a {
+    display: block; padding: 20px 0; text-decoration: none;
+    color: var(--black); font-size: 22px; font-weight: 300;
+  }
+  .mobile-lang { display: flex; gap: 16px; margin-top: 40px; }
+  .mobile-controls {
+    display: flex; gap: 32px; align-items: center;
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .mobile-controls-group { display: flex; flex-direction: column; gap: 8px; }
+  .mobile-controls-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: #aaa;
+  }
+  .mobile-controls-btns { display: flex; align-items: center; gap: 8px; }
+  .mobile-controls-btns .lang-btn,
+  .mobile-controls-btns .currency-btn {
+    font-size: 14px; padding: 2px 0;
+  }
+  .mobile-controls-btns .lang-sep,
+  .mobile-controls-btns .currency-sep { font-size: 14px; color: var(--border); }
+
+  /* ── BANNER COMPATIBILITÀ ── */
+  .compat-banner {
+    margin-top: 72px;
+    background: var(--black);
+    color: rgba(255,255,255,0.65);
+    padding: 11px 40px;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    height: calc(100vh - 108px);
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-img {
+    overflow: hidden; background: #EDE8E0; position: relative;
+  }
+  .hero-img img, .hero-img video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    color: #aaa; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  .hero-body {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 64px; background: var(--white);
+  }
+
+  .hero-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(38px, 4.5vw, 64px);
+    font-weight: 800; line-height: 1.05;
+    margin-bottom: 28px; letter-spacing: -0.02em;
+  }
+  .hero-title em { font-style: italic; color: var(--accent); }
+
+  .hero-sub {
+    font-size: 15px; font-weight: 300;
+    color: var(--gray); max-width: 400px;
+    margin-bottom: 48px; line-height: 1.75;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-block; padding: 14px 36px;
+    font-family: var(--sans);
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+  }
+  .btn-pink { background: var(--accent); color: #fff; }
+  .btn-pink:hover { background: #e04590; }
+  .btn-dark { background: var(--black); color: var(--white); }
+  .btn-dark:hover { background: #333; }
+  .btn-outline { background: transparent; color: var(--black); border: 1.5px solid var(--black); }
+  .btn-outline:hover { background: var(--black); color: var(--white); }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 40px; }
+
+  .section-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(28px, 3vw, 46px);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 48px;
+  }
+
+  /* ── COLLECTION ── */
+  .collection-header {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; margin-bottom: 48px;
+  }
+  .collection-header .section-title { margin-bottom: 0; }
+
+  .product-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+
+  .product-card { cursor: pointer; display: flex; flex-direction: column; }
+
+  .product-img {
+    aspect-ratio: 1/1;
+    background: #EDE8E0; margin-bottom: 0;
+    overflow: hidden; position: relative;
+    border-radius: 4px;
+  }
+
+  .product-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card:hover .product-img img { transform: scale(1.06); }
+
+  .product-card-cta {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    padding: 14px;
+    opacity: 0; transition: opacity 0.25s;
+    pointer-events: none;
+  }
+  .product-card-cta span {
+    background: rgba(255,255,255,0.92);
+    color: var(--black); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 2px;
+  }
+  .product-card:hover .product-card-cta { opacity: 1; }
+
+  .product-info {
+    padding: 16px 0 0;
+    border-top: 3px solid var(--border);
+    transition: border-color 0.3s;
+    display: flex; flex-direction: column; flex: 1;
+  }
+  .product-card:hover .product-info { border-color: var(--accent); }
+
+  .badge {
+    position: absolute; top: 12px; left: 12px;
+    color: var(--black); font-family: var(--display);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+  }
+
+  .material-tag {
+    display: inline-block;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gray);
+    border: 1px solid var(--border); padding: 2px 8px;
+    border-radius: 2px; margin-bottom: 8px;
+  }
+
+  .product-name { font-family: var(--display); font-size: 15px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .product-desc { font-size: 12px; color: var(--gray); margin-bottom: 10px; line-height: 1.5; }
+  .product-price { font-family: var(--display); font-size: 17px; font-weight: 800; color: var(--black); margin-top: auto; padding-top: 10px; }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--off);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .about-img { aspect-ratio: 1/1; background: #EDE8E0; overflow: hidden; border-radius: 4px; }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-body {
+    font-size: 16px; font-weight: 300;
+    color: #444; line-height: 1.85; margin-bottom: 40px;
+  }
+
+  /* ── PROCESS ── */
+  .process { background: var(--black); color: var(--white); }
+  .process .section-label { color: var(--accent); }
+  .process .section-title { color: var(--white); margin-bottom: 0; }
+
+  .process-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .process-img-wrap {
+    border-radius: 4px; overflow: hidden;
+    position: relative;
+  }
+  .process-img-wrap img {
+    width: 100%; display: block;
+    object-fit: cover; border-radius: 4px;
+    filter: brightness(0.92);
+  }
+
+  .steps {
+    display: grid; grid-template-columns: 1fr;
+    gap: 36px; margin-top: 56px;
+  }
+  .step { border-top: 1px solid #2a2a2a; padding-top: 28px; }
+
+  .step-num {
+    font-family: var(--display);
+    font-size: 44px; font-weight: 800;
+    color: var(--accent); margin-bottom: 16px; line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .step-title {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 10px; color: var(--white);
+  }
+  .step-text { font-size: 14px; font-weight: 300; color: #888; line-height: 1.7; }
+
+  /* ── TRACKER LINK ── */
+  .tracker-section {
+    background: var(--accent);
+    padding: 60px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px;
+  }
+  .tracker-text { color: #fff; }
+  .tracker-text h3 {
+    font-family: var(--display); font-size: clamp(22px, 3vw, 36px);
+    font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .tracker-text p { font-size: 15px; font-weight: 300; opacity: 0.85; }
+  .btn-white { background: #fff; color: var(--accent); }
+  .btn-white:hover { background: var(--black); color: #fff; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    display: flex; align-items: stretch;
+    border-bottom: 1px solid var(--border);
+    background: var(--off);
+  }
+  .trust-item {
+    flex: 1; display: flex; align-items: center; gap: 12px;
+    padding: 20px 28px;
+    border-right: 1px solid var(--border);
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 22px; flex-shrink: 0; }
+  .trust-label { font-size: 13px; font-weight: 600; letter-spacing: 0.01em; }
+  @media (max-width: 768px) {
+    .trust-strip { flex-wrap: wrap; }
+    .trust-item { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
+    .trust-item:nth-child(2n) { border-right: none; }
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: 100px 40px;
+    max-width: 780px; margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-trigger {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 0; text-align: left;
+    font-family: var(--sans); font-size: 15px; font-weight: 600;
+    color: var(--black); gap: 16px;
+  }
+  .faq-trigger:hover { color: var(--accent); }
+  .faq-icon {
+    flex-shrink: 0; width: 24px; height: 24px;
+    border: 1.5px solid currentColor; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 300; transition: transform 0.25s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--accent); }
+  .faq-answer {
+    display: none; padding: 0 0 24px;
+    font-size: 14px; color: var(--gray); line-height: 1.75;
+  }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer-bar {
+    background: var(--black); color: #666;
+    padding: 20px 40px; font-size: 11px; line-height: 1.7;
+    text-align: center; letter-spacing: 0.01em;
+  }
+  .disclaimer-bar a { color: #888; text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black); color: var(--white);
+    padding: 60px 40px 40px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px; margin-bottom: 60px;
+  }
+  .footer-brand {
+    font-family: var(--display); font-weight: 800; font-size: 20px;
+    letter-spacing: -0.02em; margin-bottom: 12px;
+  }
+  .footer-brand .dot { color: var(--accent); }
+  .footer-desc { font-size: 13px; color: #888; line-height: 1.7; max-width: 260px; }
+  .footer-col-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 20px; color: #888;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { text-decoration: none; color: #888; font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-bottom {
+    border-top: 1px solid #2a2a2a; padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 12px; color: #555; }
+  .footer-social a { font-size: 12px; color: #888; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-social a:hover { color: var(--accent); }
+
+  /* ── PRODUCT MODAL ── */
+  .pm-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(16,14,12,0.88);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+  }
+  .pm-overlay.open { opacity: 1; pointer-events: all; }
+
+  .pm-modal {
+    background: var(--off);
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    max-width: 1060px; width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    transform: translateY(24px) scale(0.98);
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+  .pm-overlay.open .pm-modal { transform: translateY(0) scale(1); }
+
+  /* left: gallery */
+  .pm-gallery {
+    background: #EDE8E0;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .pm-main-img {
+    flex: 1; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 0;
+  }
+  .pm-main-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: opacity 0.3s ease;
+  }
+  .pm-thumbs {
+    display: flex; gap: 6px; padding: 10px 12px;
+    background: rgba(0,0,0,0.04);
+    flex-shrink: 0;
+  }
+  .pm-thumb {
+    width: 54px; height: 54px; flex-shrink: 0;
+    border-radius: 3px; overflow: hidden; cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .pm-thumb.active { border-color: var(--accent); }
+  .pm-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* right: info */
+  .pm-info {
+    padding: 48px 40px 40px;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+    background: var(--off);
+  }
+  .pm-close {
+    position: absolute; top: 16px; right: 20px;
+    background: none; border: none; cursor: pointer;
+    font-size: 26px; color: #888; line-height: 1;
+    transition: color 0.2s; z-index: 10;
+    font-weight: 300;
+  }
+  .pm-close:hover { color: var(--black); }
+
+  .pm-material {
+    display: inline-block; margin-bottom: 16px;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gray);
+    border: 1px solid var(--border); padding: 3px 10px; border-radius: 2px;
+  }
+  .pm-name {
+    font-family: var(--display); font-size: 28px; font-weight: 800;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 6px;
+    color: var(--black);
+  }
+  .pm-price {
+    font-family: var(--display); font-size: 22px; font-weight: 800;
+    color: var(--accent); margin-bottom: 28px;
+  }
+  .pm-divider {
+    width: 40px; height: 2px; background: var(--border);
+    margin-bottom: 24px;
+  }
+  .pm-desc {
+    font-size: 14px; color: var(--gray); line-height: 1.8;
+    margin-bottom: auto; padding-bottom: 32px;
+  }
+  .pm-features {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-bottom: 32px;
+  }
+  .pm-feature {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: var(--gray);
+  }
+  .pm-feature::before {
+    content: '';
+    display: block; width: 5px; height: 5px;
+    border-radius: 50%; background: var(--accent); flex-shrink: 0;
+  }
+  .pm-cta {
+    display: block; width: 100%;
+    background: var(--black); color: var(--white);
+    border: none; padding: 16px 24px;
+    font-family: var(--sans); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; text-align: center; text-decoration: none;
+    border-radius: 3px; transition: background 0.2s;
+  }
+  .pm-cta:hover { background: var(--accent); }
+  .pm-cta-note {
+    text-align: center; font-size: 11px; color: #999;
+    margin-top: 10px;
+  }
+
+  /* ── CART BUTTON (navbar) ── */
+  .cart-btn {
+    position: relative; background: none; border: none; cursor: pointer;
+    padding: 2px; display: flex; align-items: center; color: var(--black);
+    transition: color 0.2s;
+  }
+  .cart-btn:hover { color: var(--accent); }
+  .cart-btn svg { display: block; }
+  .cart-count {
+    position: absolute; top: -5px; right: -7px;
+    background: var(--accent); color: #fff;
+    font-family: var(--sans); font-size: 9px; font-weight: 700;
+    width: 15px; height: 15px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: scale(0);
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+  }
+  .cart-count.has-items { opacity: 1; transform: scale(1); }
+  @keyframes cart-pop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.35)} }
+  .cart-btn.pop .cart-count { animation: cart-pop 0.35s ease; }
+
+  /* ── CART DRAWER ── */
+  .cart-overlay {
+    position: fixed; inset: 0; z-index: 3000;
+    background: rgba(16,14,12,0.55);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+  .cart-drawer {
+    position: absolute; top: 0; right: 0;
+    width: 400px; max-width: 100vw; height: 100%;
+    background: var(--off);
+    display: flex; flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: -6px 0 48px rgba(0,0,0,0.13);
+  }
+  .cart-overlay.open .cart-drawer { transform: translateX(0); }
+
+  .cart-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border); flex-shrink: 0;
+  }
+  .cart-title {
+    font-family: var(--display); font-size: 17px; font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .cart-close-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 24px; color: #999; line-height: 1; font-weight: 300;
+    transition: color 0.2s; padding: 0;
+  }
+  .cart-close-btn:hover { color: var(--black); }
+
+  .cart-body {
+    flex: 1; overflow-y: auto;
+    padding: 20px 28px;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .cart-empty-msg {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px;
+    color: #bbb; font-size: 13px; text-align: center; padding: 40px 0;
+  }
+  .cart-empty-msg svg { opacity: 0.3; }
+
+  .cart-item {
+    display: grid; grid-template-columns: 68px 1fr 24px;
+    gap: 14px; align-items: start;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+  }
+  .cart-item:last-child { border-bottom: none; }
+  .ci-img {
+    width: 68px; height: 68px; border-radius: 4px; overflow: hidden;
+    background: var(--border); flex-shrink: 0;
+  }
+  .ci-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ci-img-placeholder { width: 100%; height: 100%; background: #e0ddd8; }
+  .ci-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .ci-name {
+    font-family: var(--display); font-size: 13px; font-weight: 700;
+    letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .ci-price { font-size: 13px; color: var(--accent); font-weight: 600; }
+  .ci-qty {
+    display: flex; align-items: center; gap: 8px; margin-top: 8px;
+  }
+  .qty-btn {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 1.5px solid var(--border); background: none; cursor: pointer;
+    font-size: 15px; line-height: 1; color: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.18s; flex-shrink: 0;
+  }
+  .qty-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+  .qty-val { font-size: 12px; font-weight: 700; min-width: 16px; text-align: center; }
+  .ci-remove {
+    background: none; border: none; cursor: pointer;
+    color: #ccc; font-size: 20px; line-height: 1;
+    transition: color 0.2s; padding: 0; align-self: start; margin-top: 2px;
+  }
+  .ci-remove:hover { color: var(--black); }
+
+  .cart-foot {
+    padding: 20px 28px 32px; border-top: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 16px; flex-shrink: 0;
+  }
+  .cart-subtotal {
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .cart-subtotal-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gray);
+  }
+  .cart-subtotal-price {
+    font-family: var(--display); font-size: 20px; font-weight: 800; color: var(--black);
+  }
+
+  /* Payment badges */
+  .pay-row {
+    display: flex; gap: 6px; align-items: center; justify-content: center;
+    flex-wrap: wrap;
+  }
+  .pay-badge {
+    height: 26px; border-radius: 4px; border: 1.5px solid #ddd;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0 7px; background: #fff; flex-shrink: 0;
+  }
+  .pay-visa { background: #1A1F71; border-color: #1A1F71; }
+  .pay-visa span { font-size: 11px; font-weight: 900; font-style: italic; color: #fff; letter-spacing: -0.3px; font-family: Arial, sans-serif; }
+  .pay-mc { padding: 0 5px; background: #252525; border-color: #252525; position: relative; overflow: visible; }
+  .mc-r { width: 13px; height: 13px; border-radius: 50%; background: #EB001B; }
+  .mc-o { width: 13px; height: 13px; border-radius: 50%; background: #F79E1B; margin-left: -5px; }
+  .pay-apple { background: #000; border-color: #000; gap: 3px; }
+  .pay-apple span { font-size: 10px; font-weight: 600; color: #fff; letter-spacing: 0.15px; font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif; }
+  .apple-logo { width: 10px; height: 12px; }
+  .pay-google { border-color: #e0e0e0; gap: 3px; }
+  .pay-google .g-b { font-size: 11px; font-weight: 900; font-family: Arial, sans-serif; }
+  .pay-google .g-t { font-size: 10px; font-weight: 500; color: #444; font-family: Arial, sans-serif; }
+  .pay-paypal { border-color: #0070BA; }
+  .pay-paypal span { font-size: 10px; font-weight: 900; font-family: Arial, sans-serif; }
+  .pay-paypal .pp-dark { color: #003087; }
+  .pay-paypal .pp-light { color: #009cde; }
+
+  .cart-checkout-btn {
+    display: block; width: 100%;
+    background: var(--black); color: var(--white); border: none;
+    padding: 16px 24px; font-family: var(--sans); font-size: 12px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; text-align: center; border-radius: 3px;
+    transition: background 0.2s;
+  }
+  .cart-checkout-btn:hover:not(:disabled) { background: var(--accent); }
+  .cart-checkout-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .cart-secure {
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+    font-size: 10px; color: #aaa; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .cart-secure svg { flex-shrink: 0; }
+
+  /* payment icons in modal */
+  .pm-pay-row { margin-top: 14px; }
+  .pm-pay-row .pay-row { justify-content: flex-start; gap: 5px; }
+  .pm-pay-row .pay-badge { height: 22px; }
+  .pm-pay-row .pay-visa span { font-size: 9px; }
+  .pm-pay-row .pay-apple span { font-size: 8.5px; }
+  .pm-pay-row .pay-google .g-b { font-size: 10px; }
+  .pm-pay-row .pay-google .g-t { font-size: 8.5px; }
+  .pm-pay-row .pay-paypal span { font-size: 8.5px; }
+
+  /* add-to-cart button in modal */
+  .pm-add-cart {
+    display: block; width: 100%;
+    background: var(--accent); color: #fff; border: none;
+    padding: 15px 24px; font-family: var(--sans); font-size: 12px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; text-align: center; border-radius: 3px;
+    transition: background 0.2s; margin-bottom: 10px;
+  }
+  .pm-add-cart:hover { background: #e04090; }
+
+  /* modal responsive */
+  @media (max-width: 768px) {
+    .pm-overlay { padding: 0; align-items: flex-end; }
+    .pm-modal {
+      grid-template-columns: 1fr;
+      grid-template-rows: 55vw 1fr;
+      max-height: 92vh;
+      border-radius: 12px 12px 0 0;
+    }
+    .pm-info { padding: 28px 24px 32px; }
+    .pm-name { font-size: 22px; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+    /* Nascondi toggles dalla navbar su mobile — vanno nel menu */
+    .nav-right .lang-toggle,
+    .nav-right .currency-toggle { display: none; }
+
+    .compat-banner { padding: 12px 20px; font-size: 9px; }
+
+    .hero { grid-template-columns: 1fr; height: auto; }
+    .hero-img { height: 70vw; }
+    .hero-body { padding: 48px 24px; }
+
+    section { padding: 72px 24px; }
+
+    .about { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; }
+    .process-inner { grid-template-columns: 1fr; gap: 48px; }
+    .process-img-wrap { order: -1; max-height: 60vw; overflow: hidden; }
+    .process-img-wrap img { object-position: center top; }
+    .steps { gap: 28px; margin-top: 40px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .collection-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+    .tracker-section { flex-direction: column; align-items: flex-start; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+    .footer-grid > div:first-child { grid-column: 1 / -1; }
+    .footer-desc { max-width: 100%; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <div class="nav-left">
+    <a href="#" class="nav-logo" id="nav-logo">
+      <span class="logo-chunk logo-p">P</span>
+      <span class="logo-chunk logo-o1">o</span>
+      <span class="logo-chunk logo-p2">p</span>
+      <span class="logo-chunk logo-m">M</span>
+      <span class="logo-chunk logo-o2">o</span>
+      <span class="logo-chunk logo-d">d</span>
+      <span class="logo-chunk logo-s">s</span>
+    </a>
+    <ul class="nav-links" id="nav-links"></ul>
+  </div>
+  <div class="nav-right">
+    <button class="cart-btn" id="cart-btn" onclick="openCart()" aria-label="Carrello">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+    <div class="currency-toggle">
+      <button class="currency-btn active" data-currency="EUR" onclick="setCurrency('EUR')">€</button>
+      <span class="currency-sep">/</span>
+      <button class="currency-btn" data-currency="USD" onclick="setCurrency('USD')">$</button>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul id="mobile-nav-links"></ul>
+  <div class="mobile-controls">
+    <div class="mobile-controls-group">
+      <p class="mobile-controls-label">
+        <span class="it-inline">Lingua</span><span class="en-inline">Language</span>
+      </p>
+      <div class="mobile-controls-btns">
+        <button class="lang-btn active" id="mob-btn-it" onclick="setLang('it')">IT</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" id="mob-btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+    <div class="mobile-controls-group">
+      <p class="mobile-controls-label">
+        <span class="it-inline">Valuta</span><span class="en-inline">Currency</span>
+      </p>
+      <div class="mobile-controls-btns">
+        <button class="currency-btn active" data-currency="EUR" onclick="setCurrency('EUR')">€ EUR</button>
+        <span class="currency-sep">/</span>
+        <button class="currency-btn" data-currency="USD" onclick="setCurrency('USD')">$ USD</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BANNER ── -->
+<div class="compat-banner">
+  <span class="it-inline" id="banner-it"></span>
+  <span class="en-inline" id="banner-en"></span>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" style="padding:0;" id="hero-section">
+  <div class="hero-img" id="hero-img-wrap"></div>
+  <div class="hero-body">
+    <p class="hero-label" id="hero-label"></p>
+    <h1 class="hero-title it" id="hero-title-it"></h1>
+    <h1 class="hero-title en" id="hero-title-en"></h1>
+    <p class="hero-sub it" id="hero-sub-it"></p>
+    <p class="hero-sub en" id="hero-sub-en"></p>
+    <a href="#collection" class="btn btn-pink">
+      <span class="it-inline" id="hero-cta-it"></span>
+      <span class="en-inline" id="hero-cta-en"></span>
+    </a>
+  </div>
+</section>
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip" id="trust-strip"></div>
+
+<!-- ── COLLECTION ── -->
+<section id="collection" style="background: var(--white);">
+  <div class="collection-header">
+    <div>
+      <p class="section-label">
+        <span class="it-inline">Kit disponibili</span>
+        <span class="en-inline">Available kits</span>
+      </p>
+      <h2 class="section-title">
+        <span class="it-inline">I Tuoi Colori</span>
+        <span class="en-inline">Your Colors</span>
+      </h2>
+    </div>
+    <a href="#contact" class="btn btn-outline">
+      <span class="it-inline">Ordina ora</span>
+      <span class="en-inline">Order now</span>
+    </a>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-img" id="about-img-wrap"></div>
+  <div>
+    <p class="section-label">
+      <span class="it-inline">Chi siamo</span>
+      <span class="en-inline">About us</span>
+    </p>
+    <h2 class="section-title">
+      <span class="it" id="about-title-it"></span>
+      <span class="en" id="about-title-en"></span>
+    </h2>
+    <p class="about-body it" id="about-text-it"></p>
+    <p class="about-body en" id="about-text-en"></p>
+    <a id="about-cta" target="_blank" class="btn btn-dark">
+      <span class="it-inline" id="about-cta-it"></span>
+      <span class="en-inline" id="about-cta-en"></span>
+    </a>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-content">
+      <p class="section-label">
+        <span class="it-inline">Come funziona</span>
+        <span class="en-inline">How it works</span>
+      </p>
+      <h2 class="section-title">
+        <span class="it-inline">Snap & Wear</span>
+        <span class="en-inline">Snap & Wear</span>
+      </h2>
+      <div class="steps" id="steps"></div>
+    </div>
+    <div class="process-img-wrap">
+      <img src="immagini/process-watch.jpg" alt="Royal Pop Kit — Blaue Acht" />
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq" style="background: var(--white);">
+  <div class="faq-section">
+    <p class="section-label" style="margin-bottom:12px;">
+      <span class="it-inline">Domande frequenti</span>
+      <span class="en-inline">FAQ</span>
+    </p>
+    <h2 class="section-title" style="margin-bottom:40px;">
+      <span class="it-inline">Tutto quello che<br>devi sapere.</span>
+      <span class="en-inline">Everything you<br>need to know.</span>
+    </h2>
+    <div id="faq-list"></div>
+  </div>
+</section>
+
+<!-- ── TRACKER LINK ── -->
+<div class="tracker-section" id="contact">
+  <div class="tracker-text">
+    <h3>
+      <span class="it-inline">Segui il lancio Royal Pop in tempo reale.</span>
+      <span class="en-inline">Follow the Royal Pop in real time.</span>
+    </h3>
+    <p>
+      <span class="it-inline">Date, prezzi, resale e alert gratuiti su royalpopwatch.com</span>
+      <span class="en-inline">Release dates, prices, resale listings and free alerts — all at royalpopwatch.com</span>
+    </p>
+  </div>
+  <a href="https://royalpopwatch.com" target="_blank" class="btn btn-white">royalpopwatch.com →</a>
+</div>
+
+<!-- ── DISCLAIMER ── -->
+<div class="disclaimer-bar">
+  <span class="it-inline">PopMods è un brand indipendente di accessori aftermarket. Non è affiliato, sponsorizzato né approvato da Swatch Group Ltd. o Audemars Piguet. "Royal Pop", "Swatch" e "Audemars Piguet" sono marchi registrati dei rispettivi proprietari, citati esclusivamente per indicare la compatibilità del prodotto.</span>
+  <span class="en-inline">PopMods is an independent aftermarket accessories brand. Not affiliated with, endorsed by, or sponsored by Swatch Group Ltd. or Audemars Piguet. "Royal Pop", "Swatch" and "Audemars Piguet" are trademarks of their respective owners, referenced solely to indicate product compatibility.</span>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:inline-flex;align-items:stretch;border:2px solid #444;border-radius:5px;overflow:hidden;box-shadow:2px 2px 0 #444;margin-bottom:14px;">
+        <span style="font-family:var(--display);font-weight:800;font-size:14px;padding:5px 8px;background:#FF5FA2;color:#171717;">P</span>
+        <span style="font-family:var(--display);font-weight:800;font-size:14px;padding:5px 8px;background:#C7FF3D;color:#171717;">o</span>
+        <span style="font-family:var(--display);font-weight:800;font-size:14px;padding:5px 8px;background:#244CFF;color:#fff;">p</span>
+        <span style="font-family:var(--display);font-weight:800;font-size:14px;padding:5px 8px;background:#FFB84D;color:#171717;">M</span>
+        <span style="font-family:var(--display);font-weight:800;font-size:14px;padding:5px 8px;background:#FF5FA2;color:#171717;">o</span>
+        <span style="font-family:var(--display);font-weight:800;font-size:14px;padding:5px 8px;background:#C7FF3D;color:#171717;">d</span>
+        <span style="font-family:var(--display);font-weight:800;font-size:14px;padding:5px 8px;background:#244CFF;color:#fff;">s</span>
+      </div>
+      <p class="footer-desc it">Casse e bracciali custom per il Swatch × AP Royal Pop. Il tuo colore, la tua identità.</p>
+      <p class="footer-desc en">Custom cases and bracelets for the Swatch × AP Royal Pop. Your color, your identity.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">
+        <span class="it-inline">Navigazione</span>
+        <span class="en-inline">Navigation</span>
+      </p>
+      <ul class="footer-links">
+        <li><a href="#collection"><span class="it-inline">Kit</span><span class="en-inline">Kits</span></a></li>
+        <li><a href="#about"><span class="it-inline">Chi siamo</span><span class="en-inline">About</span></a></li>
+        <li><a href="#process">Snap &amp; Wear</a></li>
+        <li><a href="#contact">royalpopwatch.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">
+        <span class="it-inline">Contatti</span>
+        <span class="en-inline">Contact</span>
+      </p>
+      <ul class="footer-links">
+        <li><a href="https://royalpopwatch.com" target="_blank">royalpopwatch.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Info</p>
+      <ul class="footer-links">
+        <li><a href="#"><span class="it-inline">Privacy Policy</span><span class="en-inline">Privacy Policy</span></a></li>
+        <li><a href="#"><span class="it-inline">Termini e condizioni</span><span class="en-inline">Terms & Conditions</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy" id="footer-copy"></p>
+    <div class="footer-social">
+      <a href="https://royalpopwatch.com" target="_blank">royalpopwatch.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//  MOTORE
+// ════════════════════════════════════════════════════════════════
+
+// ── Currency ────────────────────────────────────────────────────
+let _currentCurrency = 'EUR';
+let _eurUsdRate = 1.09; // fallback
+
+fetch('https://api.exchangerate-api.com/v4/latest/EUR')
+  .then(r => r.json())
+  .then(d => { if (d && d.rates && d.rates.USD) _eurUsdRate = d.rates.USD; })
+  .catch(() => {});
+
+function formatPrice(eur) {
+  if (_currentCurrency === 'USD') return '$ ' + Math.round(eur * _eurUsdRate);
+  return '€ ' + eur;
+}
+
+function setCurrency(c) {
+  _currentCurrency = c;
+  document.querySelectorAll('[data-eur]').forEach(el => {
+    el.textContent = formatPrice(parseFloat(el.dataset.eur));
+  });
+  document.querySelectorAll('.currency-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.currency === c);
+  });
+}
+// ────────────────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', function() {
+  const b = CONFIG.brand;
+  const h = CONFIG.hero;
+  const a = CONFIG.about;
+
+  // Nav links
+  const navItems = [
+    { href: '#collection', it: 'Kit',           en: 'Kits'          },
+    { href: '#about',      it: 'Chi siamo',     en: 'About'         },
+    { href: '#process',    it: 'Come funziona', en: 'How it works'  },
+    { href: '#faq',        it: 'FAQ',           en: 'FAQ'           },
+    { href: '#contact',    it: 'Tracker',       en: 'Tracker'       },
+  ];
+  const navHtml = navItems.map(i =>
+    `<li><a href="${i.href}"><span class="it-inline">${i.it}</span><span class="en-inline">${i.en}</span></a></li>`
+  ).join('');
+  document.getElementById('nav-links').innerHTML = navHtml;
+  document.getElementById('mobile-nav-links').innerHTML = navItems.map(i =>
+    `<li><a href="${i.href}" onclick="toggleMenu()"><span class="it-inline">${i.it}</span><span class="en-inline">${i.en}</span></a></li>`
+  ).join('');
+
+  // Banner
+  document.getElementById('banner-it').textContent = CONFIG.banner.it;
+  document.getElementById('banner-en').textContent = CONFIG.banner.en;
+
+  // Trust strip
+  const trustEl = document.getElementById('trust-strip');
+  if (trustEl && CONFIG.trust) {
+    const lang = document.documentElement.lang || 'it';
+    trustEl.innerHTML = CONFIG.trust.map(t => `
+      <div class="trust-item">
+        <span class="trust-icon">${t.icon}</span>
+        <span class="trust-label it-inline">${t.it}</span>
+        <span class="trust-label en-inline">${t.en}</span>
+      </div>
+    `).join('');
+  }
+
+  // FAQ
+  const faqEl = document.getElementById('faq-list');
+  if (faqEl && CONFIG.faq) {
+    faqEl.innerHTML = CONFIG.faq.map((f, i) => `
+      <div class="faq-item" id="faq-${i}">
+        <button class="faq-trigger" onclick="toggleFaq(${i})">
+          <span class="it-inline">${f.q_it}</span>
+          <span class="en-inline">${f.q_en}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <span class="it-inline">${f.a_it}</span>
+          <span class="en-inline">${f.a_en}</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Hero
+  document.getElementById('hero-label').innerHTML = `<span class="it-inline">${h.label_it}</span><span class="en-inline">${h.label_en}</span>`;
+  document.getElementById('hero-title-it').innerHTML = h.titolo_it;
+  document.getElementById('hero-title-en').innerHTML = h.titolo_en;
+  document.getElementById('hero-sub-it').textContent = h.testo_it;
+  document.getElementById('hero-sub-en').textContent = h.testo_en;
+  document.getElementById('hero-cta-it').textContent = h.cta_it;
+  document.getElementById('hero-cta-en').textContent = h.cta_en;
+  setHeroMedia('hero-img-wrap', h.video, h.immagine);
+
+  // Prodotti
+  const grid = document.getElementById('product-grid');
+  grid.innerHTML = CONFIG.prodotti.map((p, i) => {
+    const mainImg = (p.immagini && p.immagini.length) ? p.immagini[0] : (p.immagine || '');
+    return `
+    <div class="product-card" onclick="openProduct(${i})" role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter')openProduct(${i})">
+      <div class="product-img">
+        ${(p.badge||p.badge_it) ? `<span class="badge" style="background:${p.badge_color};${p.badge_color==='#C7FF3D'?'color:#171717;':''}"><span class="it-inline">${p.badge_it||p.badge}</span><span class="en-inline">${p.badge_en||p.badge}</span></span>` : ''}
+        ${imgOrPlaceholder(mainImg, p.nome)}
+        <div class="product-card-cta">
+          <span class="it-inline">Scopri →</span><span class="en-inline">Explore →</span>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="material-tag"><span class="it-inline">${p.materiale_it||p.materiale||''}</span><span class="en-inline">${p.materiale_en||p.materiale||''}</span></span>
+        <p class="product-name">${p.nome}</p>
+        <p class="product-desc it">${p.desc_it}</p>
+        <p class="product-desc en">${p.desc_en}</p>
+        <p class="product-price" data-eur="${p.prezzo}">${formatPrice(p.prezzo)}</p>
+      </div>
+    </div>
+  `}).join('');
+
+  // About
+  document.getElementById('about-title-it').textContent = a.titolo_it;
+  document.getElementById('about-title-en').textContent = a.titolo_en;
+  document.getElementById('about-text-it').textContent = a.testo_it;
+  document.getElementById('about-text-en').textContent = a.testo_en;
+  const aboutCta = document.getElementById('about-cta');
+  if (a.cta_url) {
+    aboutCta.href = a.cta_url;
+    document.getElementById('about-cta-it').textContent = a.cta_it;
+    document.getElementById('about-cta-en').textContent = a.cta_en;
+  } else {
+    aboutCta.style.display = 'none';
+  }
+  const aboutImgWrap = document.getElementById('about-img-wrap');
+  if (a.immagine) {
+    const img = document.createElement('img');
+    img.src = a.immagine; img.alt = 'PopMods';
+    aboutImgWrap.appendChild(img);
+  }
+
+  // Process
+  const stepsEl = document.getElementById('steps');
+  stepsEl.innerHTML = CONFIG.processo.map(s => `
+    <div class="step">
+      <div class="step-num">${s.num}</div>
+      <p class="step-title it">${s.titolo_it}</p>
+      <p class="step-title en">${s.titolo_en}</p>
+      <p class="step-text it">${s.testo_it}</p>
+      <p class="step-text en">${s.testo_en}</p>
+    </div>
+  `).join('');
+
+  // Footer
+  document.getElementById('footer-copy').textContent =
+    `© ${b.anno_copyright} PopMods. Progetto indipendente non affiliato a Swatch o Audemars Piguet.`;
+
+  // Init lingua
+  setLang('it');
+});
+
+// ── LINGUA ──
+function setLang(lang) {
+  const isEN = lang === 'en';
+  document.querySelectorAll('.it').forEach(el => el.style.display = isEN ? 'none' : 'block');
+  document.querySelectorAll('.en').forEach(el => el.style.display = isEN ? 'block' : 'none');
+  document.querySelectorAll('.it-inline').forEach(el => el.style.display = isEN ? 'none' : 'inline');
+  document.querySelectorAll('.en-inline').forEach(el => el.style.display = isEN ? 'inline' : 'none');
+  ['btn-it','btn-en','mob-btn-it','mob-btn-en'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('active', id.includes(lang));
+  });
+  document.documentElement.lang = lang;
+}
+
+// ── HERO MEDIA ──
+function setHeroMedia(wrapperId, videoSrc, imgSrc) {
+  const wrap = document.getElementById(wrapperId);
+  if (videoSrc) {
+    const video = document.createElement('video');
+    video.autoplay = true; video.muted = true; video.loop = true; video.playsInline = true;
+    if (imgSrc) video.poster = imgSrc;
+    const source = document.createElement('source');
+    source.src = videoSrc; source.type = 'video/mp4';
+    video.appendChild(source);
+    video.onerror = () => setImage(wrapperId, imgSrc, 'PopMods');
+    wrap.appendChild(video);
+  } else {
+    setImage(wrapperId, imgSrc, 'PopMods');
+  }
+}
+
+function setImage(wrapperId, src, alt) {
+  const wrap = document.getElementById(wrapperId);
+  if (src) {
+    const img = document.createElement('img');
+    img.src = src; img.alt = alt;
+    img.onerror = () => { wrap.innerHTML = `<div class="img-placeholder">${alt}</div>`; };
+    wrap.appendChild(img);
+  } else {
+    wrap.innerHTML = `<div class="img-placeholder">${alt}</div>`;
+  }
+}
+
+function imgOrPlaceholder(src, alt) {
+  if (!src) return `<div class="img-placeholder">${alt}</div>`;
+  return `<img src="${src}" alt="${alt}" onerror="this.parentNode.innerHTML='<div class=\\'img-placeholder\\'>${alt}</div>'" />`;
+}
+
+// ── FAQ TOGGLE ──
+function toggleFaq(i) {
+  const item = document.getElementById('faq-' + i);
+  const wasOpen = item.classList.contains('open');
+  // chiudi tutti
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  // apri quello cliccato se era chiuso
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── HAMBURGER ──
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+// ── SCROLL NAV ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── PRODUCT MODAL ──
+// ════════════════════════════════════════════════════════════════
+//  CART
+// ════════════════════════════════════════════════════════════════
+let _cart = [];
+let _currentProductIdx = null;
+
+function addToCart(idx) {
+  if (idx === null || idx === undefined) return;
+  const p = CONFIG.prodotti[idx];
+  const existing = _cart.find(item => item.idx === idx);
+  if (existing) {
+    existing.qty++;
+  } else {
+    _cart.push({
+      idx,
+      nome: p.nome,
+      prezzo: p.prezzo,
+      immagine: (p.immagini && p.immagini.length) ? p.immagini[0] : (p.immagine || ''),
+      qty: 1
+    });
+  }
+  _updateCartCount();
+  // badge pop animation
+  const btn = document.getElementById('cart-btn');
+  btn.classList.remove('pop');
+  void btn.offsetWidth;
+  btn.classList.add('pop');
+  setTimeout(() => btn.classList.remove('pop'), 400);
+}
+
+function removeFromCart(idx) {
+  _cart = _cart.filter(item => item.idx !== idx);
+  _updateCartCount();
+  _renderCartBody();
+}
+
+function updateQty(idx, delta) {
+  const item = _cart.find(item => item.idx === idx);
+  if (!item) return;
+  item.qty = Math.max(1, item.qty + delta);
+  _renderCartBody();
+}
+
+function _getCartTotal() {
+  return _cart.reduce((sum, item) => sum + item.prezzo * item.qty, 0);
+}
+
+function _updateCartCount() {
+  const total = _cart.reduce((sum, item) => sum + item.qty, 0);
+  const el = document.getElementById('cart-count');
+  if (!el) return;
+  el.textContent = total;
+  el.classList.toggle('has-items', total > 0);
+}
+
+function _renderCartBody() {
+  const lang = document.documentElement.lang || 'it';
+  const listEl = document.getElementById('cart-items-list');
+  const emptyEl = document.getElementById('cart-empty');
+  const totalEl = document.getElementById('cart-total');
+  const checkoutBtn = document.getElementById('cart-checkout');
+  const isEmpty = _cart.length === 0;
+
+  emptyEl.style.display = isEmpty ? 'flex' : 'none';
+  checkoutBtn.disabled = isEmpty;
+
+  if (isEmpty) {
+    listEl.innerHTML = '';
+    totalEl.textContent = '—';
+    return;
+  }
+
+  listEl.innerHTML = _cart.map(item => `
+    <div class="cart-item">
+      <div class="ci-img">
+        ${item.immagine
+          ? `<img src="${item.immagine}" alt="${item.nome}">`
+          : `<div class="ci-img-placeholder"></div>`}
+      </div>
+      <div class="ci-info">
+        <p class="ci-name">${item.nome}</p>
+        <p class="ci-price" data-eur="${item.prezzo}">${formatPrice(item.prezzo)}</p>
+        <div class="ci-qty">
+          <button class="qty-btn" onclick="updateQty(${item.idx},-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="updateQty(${item.idx},+1)">+</button>
+        </div>
+      </div>
+      <button class="ci-remove" onclick="removeFromCart(${item.idx})" aria-label="Rimuovi">×</button>
+    </div>
+  `).join('');
+
+  totalEl.textContent = formatPrice(_getCartTotal());
+}
+
+function openCart() {
+  _renderCartBody();
+  document.getElementById('cart-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// aggiorna prezzi nel carrello quando cambia valuta
+const _origSetCurrency = setCurrency;
+// (setCurrency già aggiorna tutti i [data-eur] incluse le righe del carrello)
+
+// ════════════════════════════════════════════════════════════════
+
+function openProduct(idx) {
+  _currentProductIdx = idx;
+  const p = CONFIG.prodotti[idx];
+  const lang = document.documentElement.lang || 'it';
+  const overlay = document.getElementById('pm-overlay');
+  const modal = overlay.querySelector('.pm-modal');
+
+  // main image
+  const imgs = p.immagini && p.immagini.length ? p.immagini : [p.immagine || ''];
+  const mainImg = document.getElementById('pm-main');
+  const thumbsEl = document.getElementById('pm-thumbs');
+
+  mainImg.src = imgs[0];
+  mainImg.alt = p.nome;
+
+  // thumbnails — only show strip if >1 image
+  thumbsEl.innerHTML = '';
+  if (imgs.length > 1) {
+    imgs.forEach((src, i) => {
+      const div = document.createElement('div');
+      div.className = 'pm-thumb' + (i === 0 ? ' active' : '');
+      div.innerHTML = `<img src="${src}" alt="${p.nome} ${i+1}" />`;
+      div.onclick = () => {
+        mainImg.style.opacity = '0';
+        setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 200);
+        thumbsEl.querySelectorAll('.pm-thumb').forEach(t => t.classList.remove('active'));
+        div.classList.add('active');
+      };
+      thumbsEl.appendChild(div);
+    });
+    thumbsEl.style.display = 'flex';
+  } else {
+    thumbsEl.style.display = 'none';
+  }
+
+  // info
+  const mat = lang === 'en' ? (p.materiale_en || '') : (p.materiale_it || '');
+  document.getElementById('pm-material').textContent = mat;
+  document.getElementById('pm-name').textContent = p.nome;
+  const pmPriceEl = document.getElementById('pm-price');
+  pmPriceEl.dataset.eur = p.prezzo;
+  pmPriceEl.textContent = formatPrice(p.prezzo);
+  document.getElementById('pm-desc').textContent = lang === 'en'
+    ? (p.dettaglio_en || p.desc_en || '')
+    : (p.dettaglio_it || p.desc_it || '');
+
+  // features
+  const feats = lang === 'en'
+    ? ['Premium bioceramic material', '12-month warranty', 'Ships within 48h', 'No tools required']
+    : ['Bioceramic di qualità premium', 'Garanzia 12 mesi', 'Spedizione entro 48h', 'Nessun attrezzo necessario'];
+  document.getElementById('pm-features').innerHTML = feats.map(f =>
+    `<div class="pm-feature">${f}</div>`
+  ).join('');
+
+  // CTA secondario (link diretto, se configurato)
+  const ctaEl = document.getElementById('pm-cta');
+  if (p.cta_url) {
+    ctaEl.href = p.cta_url;
+    ctaEl.target = '_blank';
+    ctaEl.textContent = lang === 'en' ? 'Buy directly →' : 'Acquista direttamente →';
+    ctaEl.style.display = 'block';
+  } else {
+    ctaEl.style.display = 'none';
+  }
+
+  // open
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  modal.scrollTop = 0;
+}
+
+function closeProduct() {
+  document.getElementById('pm-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeProduct(); closeCart(); }
+});
+</script>
+
+<!-- ── PRODUCT MODAL ── -->
+<div class="pm-overlay" id="pm-overlay" onclick="if(event.target===this)closeProduct()">
+  <div class="pm-modal">
+    <button class="pm-close" onclick="closeProduct()" aria-label="Close">×</button>
+
+    <!-- Left: gallery -->
+    <div class="pm-gallery">
+      <div class="pm-main-img">
+        <img id="pm-main" src="" alt="" />
+      </div>
+      <div class="pm-thumbs" id="pm-thumbs"></div>
+    </div>
+
+    <!-- Right: info -->
+    <div class="pm-info">
+      <span class="pm-material" id="pm-material"></span>
+      <h2 class="pm-name" id="pm-name"></h2>
+      <p class="pm-price" id="pm-price"></p>
+      <div class="pm-divider"></div>
+      <p class="pm-desc" id="pm-desc"></p>
+      <div class="pm-features" id="pm-features"></div>
+      <button class="pm-add-cart" id="pm-add-cart" onclick="addToCart(_currentProductIdx); closeProduct(); openCart();">
+        <span class="it-inline">Aggiungi al carrello</span>
+        <span class="en-inline">Add to cart</span>
+      </button>
+      <a class="pm-cta" id="pm-cta" href="#">Order Now</a>
+      <div class="pm-pay-row">
+        <div class="pay-row">
+          <span class="pay-badge pay-visa"><span>VISA</span></span>
+          <span class="pay-badge pay-mc"><span class="mc-r"></span><span class="mc-o"></span></span>
+          <span class="pay-badge pay-apple">
+            <svg class="apple-logo" viewBox="0 0 14 17" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M13.2 12.4c-.3.7-.6 1.3-1 1.9-.5.8-.9 1.3-1.3 1.6-.5.5-1.1.7-1.7.7-.4 0-.9-.1-1.5-.4-.6-.2-1.1-.4-1.5-.4-.5 0-1 .1-1.5.4-.5.3-1 .4-1.4.4-.6 0-1.2-.3-1.7-.7-.4-.4-.9-1-1.4-1.7C.7 13.4.3 12.6.1 11.7c-.2-1-.3-1.9-.3-2.8 0-1 .2-1.9.6-2.7.4-.7.8-1.2 1.4-1.6.6-.4 1.2-.6 1.9-.6.4 0 .9.1 1.5.4.6.2 1 .4 1.2.4.2 0 .6-.1 1.3-.4.7-.2 1.3-.4 1.7-.3.5 0 1 .1 1.4.4.4.2.8.5 1.1 1-.4.3-.8.6-1 1.1-.3.5-.4 1-.4 1.5 0 .6.2 1.1.5 1.5.3.5.7.8 1.1 1zM9.8 1c0 .5-.2 1-.5 1.5-.4.5-.8.9-1.4 1.1-.1 0-.2 0-.3 0 0-.5.2-1 .5-1.5C8.4 1.7 9 1.3 9.6 1c.1 0 .2 0 .3 0z"/></svg>
+            <span>Pay</span>
+          </span>
+          <span class="pay-badge pay-google">
+            <span class="g-b" style="color:#4285F4">G</span><span class="g-t">Pay</span>
+          </span>
+          <span class="pay-badge pay-paypal">
+            <span class="pp-dark">Pay</span><span class="pp-light">Pal</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CART DRAWER ── -->
+<div class="cart-overlay" id="cart-overlay" onclick="if(event.target===this)closeCart()">
+  <div class="cart-drawer">
+
+    <div class="cart-head">
+      <p class="cart-title">
+        <span class="it-inline">Carrello</span>
+        <span class="en-inline">Cart</span>
+      </p>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Chiudi">×</button>
+    </div>
+
+    <div class="cart-body" id="cart-body">
+      <div class="cart-empty-msg" id="cart-empty">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="it-inline">Il carrello è vuoto</span>
+        <span class="en-inline">Your cart is empty</span>
+      </div>
+      <div id="cart-items-list"></div>
+    </div>
+
+    <div class="cart-foot">
+      <div class="cart-subtotal">
+        <span class="cart-subtotal-label">
+          <span class="it-inline">Totale</span>
+          <span class="en-inline">Total</span>
+        </span>
+        <span class="cart-subtotal-price" id="cart-total">—</span>
+      </div>
+
+      <div class="pay-row">
+        <span class="pay-badge pay-visa"><span>VISA</span></span>
+        <span class="pay-badge pay-mc"><span class="mc-r"></span><span class="mc-o"></span></span>
+        <span class="pay-badge pay-apple">
+          <svg class="apple-logo" viewBox="0 0 14 17" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M13.2 12.4c-.3.7-.6 1.3-1 1.9-.5.8-.9 1.3-1.3 1.6-.5.5-1.1.7-1.7.7-.4 0-.9-.1-1.5-.4-.6-.2-1.1-.4-1.5-.4-.5 0-1 .1-1.5.4-.5.3-1 .4-1.4.4-.6 0-1.2-.3-1.7-.7-.4-.4-.9-1-1.4-1.7C.7 13.4.3 12.6.1 11.7c-.2-1-.3-1.9-.3-2.8 0-1 .2-1.9.6-2.7.4-.7.8-1.2 1.4-1.6.6-.4 1.2-.6 1.9-.6.4 0 .9.1 1.5.4.6.2 1 .4 1.2.4.2 0 .6-.1 1.3-.4.7-.2 1.3-.4 1.7-.3.5 0 1 .1 1.4.4.4.2.8.5 1.1 1-.4.3-.8.6-1 1.1-.3.5-.4 1-.4 1.5 0 .6.2 1.1.5 1.5.3.5.7.8 1.1 1zM9.8 1c0 .5-.2 1-.5 1.5-.4.5-.8.9-1.4 1.1-.1 0-.2 0-.3 0 0-.5.2-1 .5-1.5C8.4 1.7 9 1.3 9.6 1c.1 0 .2 0 .3 0z"/></svg>
+          <span>Pay</span>
+        </span>
+        <span class="pay-badge pay-google">
+          <span class="g-b" style="color:#4285F4">G</span><span class="g-t">Pay</span>
+        </span>
+        <span class="pay-badge pay-paypal">
+          <span class="pp-dark">Pay</span><span class="pp-light">Pal</span>
+        </span>
+      </div>
+
+      <button class="cart-checkout-btn" id="cart-checkout" disabled>
+        <span class="it-inline">Procedi all'acquisto</span>
+        <span class="en-inline">Checkout</span>
+      </button>
+
+      <p class="cart-secure">
+        <svg width="10" height="12" viewBox="0 0 10 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="5" width="8" height="7" rx="1"/><path d="M3 5V3a2 2 0 0 1 4 0v2"/></svg>
+        <span class="it-inline">Pagamento sicuro e crittografato</span>
+        <span class="en-inline">Secure encrypted payment</span>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
