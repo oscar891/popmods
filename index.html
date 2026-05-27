@@ -895,27 +895,27 @@ const CONFIG = {
   }
   .pm-main-img {
     flex: 1; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
+    position: relative;
     min-height: 0;
   }
   .pm-main-img img {
     width: 100%; height: 100%;
-    object-fit: contain; display: block;
-    padding: 24px;
+    object-fit: cover; display: block;
     transition: opacity 0.3s ease;
   }
   /* gallery arrows */
   .pm-arrow {
     position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.85); border: none; cursor: pointer;
+    background: rgba(255,255,255,0.75); border: none; cursor: pointer;
     width: 36px; height: 36px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 16px; color: var(--black); z-index: 5;
     opacity: 0; transition: opacity 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    backdrop-filter: blur(4px);
   }
-  .pm-arrow-prev { left: 10px; }
-  .pm-arrow-next { right: 10px; }
+  .pm-arrow-prev { left: 14px; }
+  .pm-arrow-next { right: 14px; }
   .pm-main-img:hover .pm-arrow { opacity: 1; }
   .pm-arrow:hover { background: #fff; }
 
@@ -1197,7 +1197,7 @@ const CONFIG = {
       max-height: 92vh;
       border-radius: 12px 12px 0 0;
     }
-    .pm-main-img img { padding: 12px; }
+    .pm-main-img .pm-arrow { opacity: 1; }
     .pm-info { padding: 24px 20px 28px; }
     .pm-name { font-size: 22px; }
   }
