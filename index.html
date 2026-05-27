@@ -658,6 +658,26 @@ const CONFIG = {
   }
   .product-card:hover .product-card-cta { opacity: 1; }
 
+  /* card swipe dots */
+  .card-dots {
+    position: absolute; bottom: 8px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 5px; z-index: 3;
+    pointer-events: none;
+  }
+  .card-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .card-dot.active {
+    background: #fff;
+    transform: scale(1.25);
+  }
+  /* disable hover scale during swipe to avoid jank */
+  .product-img.swiping img { transform: none !important; transition: none; }
+  .product-img img { transition: transform 0.5s ease, opacity 0.15s ease; }
+
   .product-info {
     padding: 16px 0 0;
     border-top: 3px solid var(--border);
@@ -1589,13 +1609,19 @@ document.addEventListener('DOMContentLoaded', function() {
       .filter(p => p.collezione === collezione)
       .map(p => {
         const i = p._idx;
-        const mainImg = (p.immagini && p.immagini.length) ? p.immagini[0] : (p.immagine || '');
+        const imgs = p.immagini && p.immagini.length ? p.immagini : [p.immagine || ''];
+        const mainImg = imgs[0];
+        const dotsHtml = imgs.length > 1
+          ? `<div class="card-dots">${imgs.map((_, di) => `<span class="card-dot${di===0?' active':''}"></span>`).join('')}</div>`
+          : '';
+        const imgsAttr = JSON.stringify(imgs).replace(/'/g, '&#39;');
         return `
-        <div class="product-card" onclick="openProduct(${i})" role="button" tabindex="0"
+        <div class="product-card" onclick="if(!_cardSwipe)openProduct(${i});_cardSwipe=false;" role="button" tabindex="0"
              onkeydown="if(event.key==='Enter')openProduct(${i})">
-          <div class="product-img">
+          <div class="product-img" data-imgs='${imgsAttr}' data-img-idx="0">
             ${(p.badge||p.badge_it) ? `<span class="badge" style="background:${p.badge_color};${p.badge_color==='#C7FF3D'?'color:#171717;':''}"><span class="it-inline">${p.badge_it||p.badge}</span><span class="en-inline">${p.badge_en||p.badge}</span></span>` : ''}
             ${imgOrPlaceholder(mainImg, p.nome)}
+            ${dotsHtml}
             <div class="product-card-cta">
               <span class="it-inline">Scopri →</span><span class="en-inline">Explore →</span>
             </div>
@@ -1610,6 +1636,9 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         `;
       }).join('');
+
+    // attach swipe listeners
+    grid.querySelectorAll('.product-img[data-imgs]').forEach(initCardSwipe);
   }
   renderGrid('grid-ceramic-core', 'ceramic-core');
   renderGrid('grid-pop-flex', 'pop-flex');
@@ -1724,6 +1753,40 @@ function toggleMenu() {
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
 });
+
+// ── CARD SWIPE ──
+let _cardSwipe = false;
+
+function initCardSwipe(imgWrap) {
+  const imgs = JSON.parse(imgWrap.dataset.imgs || '[]');
+  if (imgs.length <= 1) return;
+  let startX = 0, startY = 0;
+
+  imgWrap.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    _cardSwipe = false;
+    imgWrap.classList.add('swiping');
+  }, { passive: true });
+
+  imgWrap.addEventListener('touchend', e => {
+    imgWrap.classList.remove('swiping');
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      _cardSwipe = true;
+      let idx = parseInt(imgWrap.dataset.imgIdx || '0');
+      idx = (idx + (dx < 0 ? 1 : -1) + imgs.length) % imgs.length;
+      imgWrap.dataset.imgIdx = idx;
+      const img = imgWrap.querySelector('img');
+      if (img) {
+        img.style.opacity = '0';
+        setTimeout(() => { img.src = imgs[idx]; img.style.opacity = '1'; }, 100);
+      }
+      imgWrap.querySelectorAll('.card-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+  }, { passive: true });
+}
 
 // ── PRODUCT MODAL ──
 // ════════════════════════════════════════════════════════════════
