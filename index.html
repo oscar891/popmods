@@ -106,63 +106,211 @@ const CONFIG = {
     },
   ],
 
+  // ── COLLEZIONI ────────────────────────────────────────────────
+  collezioni: [
+    {
+      id:       "ceramic-core",
+      nome:     "Ceramic Core",
+      label_it: "Collezione premium",
+      label_en: "Premium collection",
+      titolo_it: "Un solo materiale. Zero compromessi.",
+      titolo_en: "One material. Zero compromise.",
+      sub_it:   "Kit completo in bioceramic — case, bezel e bracciale nello stesso composto ceramico dell'originale.",
+      sub_en:   "Full bioceramic kit — case, bezel and bracelet in the same ceramic compound as the original.",
+    },
+    {
+      id:       "pop-flex",
+      nome:     "Pop Flex",
+      label_it: "Collezione sport",
+      label_en: "Sport collection",
+      titolo_it: "Ceramica dove conta. Resina dove serve.",
+      titolo_en: "Ceramic where it counts. Resin where it matters.",
+      sub_it:   "Case in bioceramic premium, bracciale in resina leggera. Il lato sport del Royal Pop.",
+      sub_en:   "Premium bioceramic case, lightweight resin bracelet. The sport side of the Royal Pop.",
+    },
+  ],
+
   // ── PRODOTTI ──────────────────────────────────────────────────
   prodotti: [
+
+    // ── CERAMIC CORE ──────────────────────────────────────────
     {
+      collezione:   "ceramic-core",
       immagini:     ["immagini/prod-01.jpg"],
-      nome:         "OTG ROZ Kit",
-      materiale_it: "CERAMICA",
-      materiale_en: "CERAMIC",
-      desc_it:      "Case rosa + bezel giallo + bracciale rosa. La combo più audace.",
-      desc_en:      "Pink case + yellow bezel + pink bracelet. The boldest combo.",
-      dettaglio_it: "Il kit più iconico della collezione. Case e bracciale in bioceramic rosa con bezel giallo a contrasto — la palette che ha definito il lancio del Royal Pop. Materiale: bioceramic premium, lo stesso composto ceramico-polimerico dell'orologio originale. Assemblaggio in 30 secondi, senza attrezzi. Compatibile con tutti i Royal Pop 40mm Swatch × Audemars Piguet.",
-      dettaglio_en: "The most iconic kit in the collection. Pink bioceramic case and bracelet with a contrasting yellow bezel — the palette that defined the Royal Pop launch. Material: premium bioceramic, the same ceramic-polymer compound as the original watch. Snaps on in 30 seconds, no tools needed. Compatible with all 40mm Swatch × Audemars Piguet Royal Pop models.",
-      prezzo:       120,
-      badge:        "Best Seller",
-      badge_color:  "#FF5FA2",
-      cta_url:      "",
+      nome:         "OTG ROZ",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic rosa con bezel giallo. Il colorway che ha definito il lancio.",
+      desc_en:      "Full bioceramic pink kit with yellow bezel. The colorway that defined the launch.",
+      dettaglio_it: "Case e bracciale in bioceramic rosa con bezel giallo a contrasto — la palette che ha definito il lancio del Royal Pop. Bioceramic premium, lo stesso composto ceramico-polimerico dell'originale. Assemblaggio in 30 secondi, senza attrezzi. Configurazione Savonette (corona alle 3).",
+      dettaglio_en: "Pink bioceramic case and bracelet with contrasting yellow bezel — the palette that defined the Royal Pop launch. Premium bioceramic, the same ceramic-polymer compound as the original. Snaps on in 30 seconds, no tools. Savonette configuration (crown at 3).",
+      prezzo: 120, badge: "Best Seller", badge_color: "#FF5FA2", cta_url: "",
     },
     {
+      collezione:   "ceramic-core",
       immagini:     ["immagini/prod-02.jpg"],
-      nome:         "Blue Ocean Kit",
-      materiale_it: "CERAMICA",
-      materiale_en: "CERAMIC",
-      desc_it:      "Set completo in bioceramic blu. Matching perfetto con Blaue Acht.",
-      desc_en:      "Full bioceramic blue set. Perfect match for Blaue Acht.",
-      dettaglio_it: "Case, bezel e bracciale in bioceramic blu profondo — un total look che esalta il quadrante blu del colorway Blaue Acht. La finitura è uniforme e coerente con il materiale originale, per un risultato senza compromessi. Kit in ceramica premium, garanzia 12 mesi, spedizione in 48h.",
-      dettaglio_en: "Case, bezel and bracelet in deep blue bioceramic — a full look that perfectly complements the blue dial of the Blaue Acht colorway. The finish is uniform and consistent with the original material, for a seamless result. Premium ceramic kit, 12-month warranty, ships in 48h.",
-      prezzo:       120,
-      badge:        "New",
-      badge_color:  "#244CFF",
-      cta_url:      "",
+      nome:         "Làn Ba",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic turchese. Il colorway più esotico della serie.",
+      desc_en:      "Full bioceramic teal kit. The most exotic colorway in the series.",
+      dettaglio_it: "Case, bezel e bracciale in bioceramic turchese — il colorway orientale del Royal Pop in versione Ceramic Core. Stesso composto ceramico-polimerico dell'originale, tolleranze al decimo di millimetro. Configurazione Savonette (corona alle 3).",
+      dettaglio_en: "Case, bezel and bracelet in teal bioceramic — the Royal Pop's eastern colorway in Ceramic Core version. Same ceramic-polymer compound as the original, tolerances to within a tenth of a millimetre. Savonette configuration (crown at 3).",
+      prezzo: 120, badge: "", badge_color: "#00B8A9", cta_url: "",
     },
     {
-      immagini:     ["immagini/prod-03.jpg"],
-      nome:         "Rosa Vivo Kit",
-      materiale_it: "CERAMICA",
-      materiale_en: "CERAMIC",
-      desc_it:      "Case + bracciale rosa con bezel rosso. Icona del lancio.",
-      desc_en:      "Pink case and bracelet with a red bezel. A true launch statement.",
-      dettaglio_it: "Rosa vivo e rosso acceso: una dichiarazione cromatica senza filtri. Il kit abbina case e bracciale in bioceramic rosa a un bezel rosso intenso per un contrasto audace. Stessa qualità ceramica premium degli altri kit. Nessuna modifica all'orologio, nessun attrezzo. Solo stile.",
-      dettaglio_en: "Vivid pink and bold red: a statement with no apologies. The kit pairs a pink bioceramic case and bracelet with a deep red bezel for a striking contrast. Same premium ceramic quality as the rest of the collection. No modifications to your watch, no tools required. Just style.",
-      prezzo:       120,
-      badge:        "",
-      badge_color:  "#FF5FA2",
-      cta_url:      "",
+      collezione:   "ceramic-core",
+      immagini:     ["immagini/prod-02.jpg"],
+      nome:         "Blaue Acht",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic blu. Matching perfetto con il quadrante Blaue Acht.",
+      desc_en:      "Full bioceramic blue kit. Perfect match for the Blaue Acht dial.",
+      dettaglio_it: "Case, bezel e bracciale in bioceramic blu profondo — un total look che esalta il quadrante del colorway Blaue Acht. Finitura uniforme e coerente con il materiale originale. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Case, bezel and bracelet in deep blue bioceramic — a full look that complements the Blaue Acht dial. Uniform finish consistent with the original material. Lépine configuration (crown at 12).",
+      prezzo: 120, badge: "", badge_color: "#244CFF", cta_url: "",
     },
     {
+      collezione:   "ceramic-core",
       immagini:     ["immagini/prod-04.jpg"],
-      nome:         "Lime Pop Kit",
-      materiale_it: "CERAMICA",
-      materiale_en: "CERAMIC",
-      desc_it:      "Case + bracciale verde lime in bioceramic. Energia pura, finitura premium.",
-      desc_en:      "Lime green bioceramic case and bracelet. Pure energy, premium finish.",
-      dettaglio_it: "Verde lime in bioceramic di qualità superiore — energico, immediato, premium. Il kit abbina case e bracciale nello stesso composto ceramico-polimerico dell'orologio originale, lavorato con tolleranze precise al decimo di millimetro. Assemblaggio in 30 secondi, senza attrezzi. Compatibile con tutti i Royal Pop 40mm Swatch × Audemars Piguet.",
-      dettaglio_en: "Lime green in superior-grade bioceramic — bold, immediate, premium. The kit pairs case and bracelet in the same ceramic-polymer compound as the original watch, machined to within a tenth of a millimetre. Snaps on in 30 seconds, no tools needed. Compatible with all 40mm Swatch × Audemars Piguet Royal Pop models.",
-      prezzo:       120,
-      badge:        "",
-      badge_color:  "#C7FF3D",
-      cta_url:      "",
+      nome:         "Green Eight",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic verde lime. Energia pura, finitura premium.",
+      desc_en:      "Full bioceramic lime green kit. Pure energy, premium finish.",
+      dettaglio_it: "Verde lime in bioceramic di qualità superiore — energico, immediato, premium. Case e bracciale nello stesso composto ceramico-polimerico dell'originale, lavorato con tolleranze precise. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Lime green in superior-grade bioceramic — bold, immediate, premium. Case and bracelet in the same ceramic-polymer compound as the original, machined to precise tolerances. Lépine configuration (crown at 12).",
+      prezzo: 120, badge: "", badge_color: "#C7FF3D", cta_url: "",
+    },
+    {
+      collezione:   "ceramic-core",
+      immagini:     ["immagini/prod-01.jpg"],
+      nome:         "Huit Blanc",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic bianco. Purezza assoluta, eleganza immediata.",
+      desc_en:      "Full white bioceramic kit. Absolute purity, immediate elegance.",
+      dettaglio_it: "Bianco totale in bioceramic premium — case, bezel e bracciale in un unico materiale, un unico tono. Il kit più minimalista della collezione Ceramic Core. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Total white in premium bioceramic — case, bezel and bracelet in one material, one tone. The most minimalist kit in the Ceramic Core collection. Lépine configuration (crown at 12).",
+      prezzo: 120, badge: "", badge_color: "#E6DDD0", cta_url: "",
+    },
+    {
+      collezione:   "ceramic-core",
+      immagini:     ["immagini/prod-02.jpg"],
+      nome:         "Ocho Negro",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic nero. Eleganza assoluta, presenza totale.",
+      desc_en:      "Full black bioceramic kit. Absolute elegance, total presence.",
+      dettaglio_it: "Nero profondo in bioceramic premium — case, bezel e bracciale in un'unica tonalità scura. Il kit più formale della collezione Ceramic Core. Finitura matte uniforme. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Deep black in premium bioceramic — case, bezel and bracelet in a single dark tone. The most formal kit in the Ceramic Core collection. Uniform matte finish. Lépine configuration (crown at 12).",
+      prezzo: 120, badge: "", badge_color: "#333333", cta_url: "",
+    },
+    {
+      collezione:   "ceramic-core",
+      immagini:     ["immagini/prod-03.jpg"],
+      nome:         "Orenji Hachi",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic arancione. Il colorway più energico della serie.",
+      desc_en:      "Full orange bioceramic kit. The most energetic colorway in the series.",
+      dettaglio_it: "Arancione vibrante in bioceramic di qualità superiore — il colorway più energico del Royal Pop in versione monocromatica totale. Case, bezel e bracciale premium. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Vibrant orange in superior-grade bioceramic — the most energetic Royal Pop colorway in a total monochromatic version. Premium case, bezel and bracelet. Lépine configuration (crown at 12).",
+      prezzo: 120, badge: "", badge_color: "#FF8C00", cta_url: "",
+    },
+    {
+      collezione:   "ceramic-core",
+      immagini:     ["immagini/prod-03.jpg"],
+      nome:         "Otto Rosso",
+      materiale_it: "CERAMICA", materiale_en: "CERAMIC",
+      desc_it:      "Kit full bioceramic rosso. Una dichiarazione cromatica senza filtri.",
+      desc_en:      "Full red bioceramic kit. A chromatic statement with no apologies.",
+      dettaglio_it: "Rosso intenso in bioceramic premium — case, bezel e bracciale in un unico tono acceso. Il kit più audace della collezione Ceramic Core. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Deep red in premium bioceramic — case, bezel and bracelet in a single bold tone. The most striking kit in the Ceramic Core collection. Lépine configuration (crown at 12).",
+      prezzo: 120, badge: "", badge_color: "#CC0000", cta_url: "",
+    },
+
+    // ── POP FLEX ──────────────────────────────────────────────
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-01.jpg"],
+      nome:         "OTG ROZ",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica rosa + bracciale resina bianca. Il contrasto che funziona.",
+      desc_en:      "Pink ceramic case + white resin bracelet. The contrast that works.",
+      dettaglio_it: "Case in bioceramic rosa con bracciale in resina bianca — il colorway OTG ROZ reinterpretato con un contrasto materico inedito. La ceramica mantiene il premium, la resina aggiunge leggerezza e un tocco sportivo. Configurazione Savonette (corona alle 3).",
+      dettaglio_en: "Pink bioceramic case with white resin bracelet — the OTG ROZ colorway reinterpreted with a fresh material contrast. Ceramic keeps the premium feel, resin adds lightness and a sporty edge. Savonette configuration (crown at 3).",
+      prezzo: 85, badge: "", badge_color: "#FF5FA2", cta_url: "",
+    },
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-02.jpg"],
+      nome:         "Làn Ba",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica turchese + bracciale resina nera. Profondità e contrasto.",
+      desc_en:      "Teal ceramic case + black resin bracelet. Depth and contrast.",
+      dettaglio_it: "Case in bioceramic turchese con bracciale in resina nera — il colorway Làn Ba con un contrasto che esalta entrambi i toni. Leggerezza sportiva senza rinunciare alla qualità ceramica. Configurazione Savonette (corona alle 3).",
+      dettaglio_en: "Teal bioceramic case with black resin bracelet — the Làn Ba colorway with a contrast that enhances both tones. Sporty lightness without sacrificing ceramic quality. Savonette configuration (crown at 3).",
+      prezzo: 85, badge: "", badge_color: "#00B8A9", cta_url: "",
+    },
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-02.jpg"],
+      nome:         "Blaue Acht",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica blu + bracciale resina bianca. Azzurro e luce.",
+      desc_en:      "Blue ceramic case + white resin bracelet. Blue and light.",
+      dettaglio_it: "Case in bioceramic blu con bracciale in resina bianca — una combinazione pulita che porta leggerezza al colorway Blaue Acht. Perfetto per un uso sportivo e quotidiano. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Blue bioceramic case with white resin bracelet — a clean combination that brings lightness to the Blaue Acht colorway. Perfect for sporty and everyday wear. Lépine configuration (crown at 12).",
+      prezzo: 85, badge: "", badge_color: "#244CFF", cta_url: "",
+    },
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-04.jpg"],
+      nome:         "Green Eight",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica verde lime + bracciale resina nera. Contrasto massimo.",
+      desc_en:      "Lime green ceramic case + black resin bracelet. Maximum contrast.",
+      dettaglio_it: "Case in bioceramic verde lime con bracciale in resina nera — il verde diventa ancora più esplosivo contro il nero della resina. Il kit Pop Flex più d'impatto della collezione. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Lime green bioceramic case with black resin bracelet — the green becomes even more explosive against the black resin. The most impactful Pop Flex kit in the collection. Lépine configuration (crown at 12).",
+      prezzo: 85, badge: "", badge_color: "#C7FF3D", cta_url: "",
+    },
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-01.jpg"],
+      nome:         "Huit Blanc",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica bianca + bracciale resina nera. Il contrasto classico.",
+      desc_en:      "White ceramic case + black resin bracelet. The classic contrast.",
+      dettaglio_it: "Case in bioceramic bianco con bracciale in resina nera — il contrasto bianco/nero nella forma più essenziale. Versatile, elegante, mai fuori posto. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "White bioceramic case with black resin bracelet — the white/black contrast in its most essential form. Versatile, elegant, never out of place. Lépine configuration (crown at 12).",
+      prezzo: 85, badge: "", badge_color: "#E6DDD0", cta_url: "",
+    },
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-02.jpg"],
+      nome:         "Ocho Negro",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica nera + bracciale resina arancione. Dark con un colpo di scena.",
+      desc_en:      "Black ceramic case + orange resin bracelet. Dark with a twist.",
+      dettaglio_it: "Case in bioceramic nero con bracciale in resina arancione — il colorway più dark del Royal Pop con un colpo di scena cromatico. Il contrasto nero/arancione è audace, sportivo, difficile da ignorare. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Black bioceramic case with orange resin bracelet — the Royal Pop's darkest colorway with a chromatic twist. The black/orange contrast is bold, sporty, and hard to ignore. Lépine configuration (crown at 12).",
+      prezzo: 85, badge: "", badge_color: "#333333", cta_url: "",
+    },
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-03.jpg"],
+      nome:         "Orenji Hachi",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica arancione + bracciale resina nera. Energia controllata.",
+      desc_en:      "Orange ceramic case + black resin bracelet. Controlled energy.",
+      dettaglio_it: "Case in bioceramic arancione con bracciale in resina nera — l'energia del colorway Orenji Hachi incanalata in un contrasto diretto. Sportivo senza essere aggressivo. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Orange bioceramic case with black resin bracelet — the energy of the Orenji Hachi colorway channelled into a direct contrast. Sporty without being aggressive. Lépine configuration (crown at 12).",
+      prezzo: 85, badge: "", badge_color: "#FF8C00", cta_url: "",
+    },
+    {
+      collezione:   "pop-flex",
+      immagini:     ["immagini/prod-03.jpg"],
+      nome:         "Otto Rosso",
+      materiale_it: "CERAMICA + RESINA", materiale_en: "CERAMIC + RESIN",
+      desc_it:      "Case ceramica rossa + bracciale resina bianca. Passione e leggerezza.",
+      desc_en:      "Red ceramic case + white resin bracelet. Passion and lightness.",
+      dettaglio_it: "Case in bioceramic rosso con bracciale in resina bianca — il rosso Otto Rosso si ammorbidisce con il bianco della resina, risultando in una combinazione più quotidiana e versatile rispetto alla versione Ceramic Core. Configurazione Lépine (corona alle 12).",
+      dettaglio_en: "Red bioceramic case with white resin bracelet — the Otto Rosso red softens with the white resin, resulting in a more everyday, versatile combination than the Ceramic Core version. Lépine configuration (crown at 12).",
+      prezzo: 85, badge: "", badge_color: "#CC0000", cta_url: "",
     },
   ],
 
@@ -454,7 +602,11 @@ const CONFIG = {
     display: flex; align-items: flex-end;
     justify-content: space-between; margin-bottom: 48px;
   }
-  .collection-header .section-title { margin-bottom: 0; }
+  .collection-header .section-title { margin-bottom: 8px; }
+  .collection-sub {
+    font-size: 14px; font-weight: 300; color: var(--gray);
+    max-width: 480px; line-height: 1.6; margin-top: 4px;
+  }
 
   .product-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
@@ -1124,24 +1276,48 @@ const CONFIG = {
 <div class="trust-strip" id="trust-strip"></div>
 
 <!-- ── COLLECTION ── -->
-<section id="collection" style="background: var(--white);">
+<!-- ── CERAMIC CORE ── -->
+<section id="ceramic-core" style="background: var(--white);">
   <div class="collection-header">
     <div>
-      <p class="section-label">
-        <span class="it-inline">Kit disponibili</span>
-        <span class="en-inline">Available kits</span>
-      </p>
+      <p class="section-label">Ceramic Core</p>
       <h2 class="section-title">
-        <span class="it-inline">I Tuoi Colori</span>
-        <span class="en-inline">Your Colors</span>
+        <span class="it-inline">Un solo materiale. Zero compromessi.</span>
+        <span class="en-inline">One material. Zero compromise.</span>
       </h2>
+      <p class="collection-sub">
+        <span class="it-inline">Kit completo in bioceramic — case, bezel e bracciale nello stesso composto ceramico dell'originale.</span>
+        <span class="en-inline">Full bioceramic kit — case, bezel and bracelet in the same ceramic compound as the original.</span>
+      </p>
     </div>
     <a href="#contact" class="btn btn-outline">
       <span class="it-inline">Ordina ora</span>
       <span class="en-inline">Order now</span>
     </a>
   </div>
-  <div class="product-grid" id="product-grid"></div>
+  <div class="product-grid" id="grid-ceramic-core"></div>
+</section>
+
+<!-- ── POP FLEX ── -->
+<section id="pop-flex" style="background: var(--off);">
+  <div class="collection-header">
+    <div>
+      <p class="section-label">Pop Flex</p>
+      <h2 class="section-title">
+        <span class="it-inline">Ceramica dove conta. Resina dove serve.</span>
+        <span class="en-inline">Ceramic where it counts. Resin where it matters.</span>
+      </h2>
+      <p class="collection-sub">
+        <span class="it-inline">Case in bioceramic premium, bracciale in resina leggera. Il lato sport del Royal Pop.</span>
+        <span class="en-inline">Premium bioceramic case, lightweight resin bracelet. The sport side of the Royal Pop.</span>
+      </p>
+    </div>
+    <a href="#contact" class="btn btn-outline">
+      <span class="it-inline">Ordina ora</span>
+      <span class="en-inline">Order now</span>
+    </a>
+  </div>
+  <div class="product-grid" id="grid-pop-flex"></div>
 </section>
 
 <!-- ── ABOUT ── -->
@@ -1311,7 +1487,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Nav links
   const navItems = [
-    { href: '#collection', it: 'Kit',           en: 'Kits'          },
+    { href: '#ceramic-core', it: 'Kit',           en: 'Kits'          },
     { href: '#about',      it: 'Chi siamo',     en: 'About'         },
     { href: '#process',    it: 'Come funziona', en: 'How it works'  },
     { href: '#faq',        it: 'FAQ',           en: 'FAQ'           },
@@ -1370,29 +1546,39 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('hero-cta-en').textContent = h.cta_en;
   setHeroMedia('hero-img-wrap', h.video, h.immagine);
 
-  // Prodotti
-  const grid = document.getElementById('product-grid');
-  grid.innerHTML = CONFIG.prodotti.map((p, i) => {
-    const mainImg = (p.immagini && p.immagini.length) ? p.immagini[0] : (p.immagine || '');
-    return `
-    <div class="product-card" onclick="openProduct(${i})" role="button" tabindex="0"
-         onkeydown="if(event.key==='Enter')openProduct(${i})">
-      <div class="product-img">
-        ${(p.badge||p.badge_it) ? `<span class="badge" style="background:${p.badge_color};${p.badge_color==='#C7FF3D'?'color:#171717;':''}"><span class="it-inline">${p.badge_it||p.badge}</span><span class="en-inline">${p.badge_en||p.badge}</span></span>` : ''}
-        ${imgOrPlaceholder(mainImg, p.nome)}
-        <div class="product-card-cta">
-          <span class="it-inline">Scopri →</span><span class="en-inline">Explore →</span>
+  // Prodotti — due collezioni
+  function renderGrid(containerId, collezione) {
+    const grid = document.getElementById(containerId);
+    if (!grid) return;
+    grid.innerHTML = CONFIG.prodotti
+      .map((p, i) => ({ ...p, _idx: i }))
+      .filter(p => p.collezione === collezione)
+      .map(p => {
+        const i = p._idx;
+        const mainImg = (p.immagini && p.immagini.length) ? p.immagini[0] : (p.immagine || '');
+        return `
+        <div class="product-card" onclick="openProduct(${i})" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter')openProduct(${i})">
+          <div class="product-img">
+            ${(p.badge||p.badge_it) ? `<span class="badge" style="background:${p.badge_color};${p.badge_color==='#C7FF3D'?'color:#171717;':''}"><span class="it-inline">${p.badge_it||p.badge}</span><span class="en-inline">${p.badge_en||p.badge}</span></span>` : ''}
+            ${imgOrPlaceholder(mainImg, p.nome)}
+            <div class="product-card-cta">
+              <span class="it-inline">Scopri →</span><span class="en-inline">Explore →</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="material-tag"><span class="it-inline">${p.materiale_it||p.materiale||''}</span><span class="en-inline">${p.materiale_en||p.materiale||''}</span></span>
+            <p class="product-name">${p.nome}</p>
+            <p class="product-desc it">${p.desc_it}</p>
+            <p class="product-desc en">${p.desc_en}</p>
+            <p class="product-price" data-eur="${p.prezzo}">${formatPrice(p.prezzo)}</p>
+          </div>
         </div>
-      </div>
-      <div class="product-info">
-        <span class="material-tag"><span class="it-inline">${p.materiale_it||p.materiale||''}</span><span class="en-inline">${p.materiale_en||p.materiale||''}</span></span>
-        <p class="product-name">${p.nome}</p>
-        <p class="product-desc it">${p.desc_it}</p>
-        <p class="product-desc en">${p.desc_en}</p>
-        <p class="product-price" data-eur="${p.prezzo}">${formatPrice(p.prezzo)}</p>
-      </div>
-    </div>
-  `}).join('');
+        `;
+      }).join('');
+  }
+  renderGrid('grid-ceramic-core', 'ceramic-core');
+  renderGrid('grid-pop-flex', 'pop-flex');
 
   // About
   document.getElementById('about-title-it').textContent = a.titolo_it;
