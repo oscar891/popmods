@@ -141,8 +141,8 @@ const CONFIG = {
       materiale_it: "CERAMICA", materiale_en: "CERAMIC",
       desc_it:      "Rosa × Giallo. Il colorway di lancio. Savonette.",
       desc_en:      "Pink × Yellow. The launch colourway. Savonette.",
-      dettaglio_it: "Case e bracciale in bioceramic rosa con bezel giallo a contrasto — la palette che ha definito il lancio del Royal Pop. Bioceramic premium, lo stesso composto ceramico-polimerico dell'originale. Assemblaggio in 30 secondi, senza attrezzi. Configurazione Savonette (corona alle 3).",
-      dettaglio_en: "Pink bioceramic case and bracelet with contrasting yellow bezel — the palette that defined the Royal Pop launch. Premium bioceramic, the same ceramic-polymer compound as the original. Snaps on in 30 seconds, no tools. Savonette configuration (crown at 3).",
+      dettaglio_it: "Case e bracciale in bioceramic rosa con bezel giallo a contrasto — la palette che ha definito il lancio del Royal Pop. Stesso composto ceramico-polimerico dell'originale, tolleranze al decimo di millimetro. Assemblaggio in 30 secondi, senza attrezzi. Configurazione Savonette (corona alle 3).",
+      dettaglio_en: "Pink bioceramic case and bracelet with contrasting yellow bezel — the palette that defined the Royal Pop launch. Same ceramic-polymer compound as the original, tolerances to within a tenth of a millimetre. Snaps on in 30 seconds, no tools. Savonette configuration (crown at 3).",
       prezzo: 120, badge: "Best Seller", badge_color: "#FF5FA2", cta_url: "",
     },
     {
@@ -880,7 +880,8 @@ const CONFIG = {
   }
   .pm-main-img img {
     width: 100%; height: 100%;
-    object-fit: cover; display: block;
+    object-fit: contain; display: block;
+    padding: 24px;
     transition: opacity 0.3s ease;
   }
   .pm-thumbs {
@@ -1153,11 +1154,12 @@ const CONFIG = {
     .pm-overlay { padding: 0; align-items: flex-end; }
     .pm-modal {
       grid-template-columns: 1fr;
-      grid-template-rows: 55vw 1fr;
+      grid-template-rows: 42vw 1fr;
       max-height: 92vh;
       border-radius: 12px 12px 0 0;
     }
-    .pm-info { padding: 28px 24px 32px; }
+    .pm-main-img img { padding: 12px; }
+    .pm-info { padding: 24px 20px 28px; }
     .pm-name { font-size: 22px; }
   }
 
