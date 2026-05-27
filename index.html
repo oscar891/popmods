@@ -153,15 +153,14 @@ const CONFIG = {
     {
       immagini:     ["immagini/prod-04.jpg"],
       nome:         "Lime Pop Kit",
-      materiale_it: "RESINA",
-      materiale_en: "RESIN",
-      desc_it:      "Case + bracciale verde lime in resina leggera. Stessa estetica, prezzo accessibile.",
-      desc_en:      "Lime green resin case and bracelet. The same look, at a lighter price.",
-      dettaglio_it: "La versione in resina della collezione PopMods: stessa estetica, peso ridotto e prezzo più accessibile. Il verde lime è energico e immediato. Ideale se vuoi cambiare look al Royal Pop senza investire nel kit ceramico. Compatibile con tutti i colorway ufficiali Swatch × Audemars Piguet.",
-      dettaglio_en: "The resin version of the PopMods collection: same aesthetic, lighter weight, more accessible price. Lime green is bold and immediate. Perfect if you want to change up your Royal Pop without committing to the ceramic kit. Compatible with all official Swatch × Audemars Piguet colorways.",
+      materiale_it: "CERAMICA",
+      materiale_en: "CERAMIC",
+      desc_it:      "Case + bracciale verde lime in bioceramic. Energia pura, finitura premium.",
+      desc_en:      "Lime green bioceramic case and bracelet. Pure energy, premium finish.",
+      dettaglio_it: "Verde lime in bioceramic di qualità superiore — energico, immediato, premium. Il kit abbina case e bracciale nello stesso composto ceramico-polimerico dell'orologio originale, lavorato con tolleranze precise al decimo di millimetro. Assemblaggio in 30 secondi, senza attrezzi. Compatibile con tutti i Royal Pop 40mm Swatch × Audemars Piguet.",
+      dettaglio_en: "Lime green in superior-grade bioceramic — bold, immediate, premium. The kit pairs case and bracelet in the same ceramic-polymer compound as the original watch, machined to within a tenth of a millimetre. Snaps on in 30 seconds, no tools needed. Compatible with all 40mm Swatch × Audemars Piguet Royal Pop models.",
       prezzo:       120,
-      badge_it:     "Resina",
-      badge_en:     "Resin",
+      badge:        "",
       badge_color:  "#C7FF3D",
       cta_url:      "",
     },
@@ -170,8 +169,8 @@ const CONFIG = {
   // ── ABOUT ─────────────────────────────────────────────────────
   about: {
     immagine:     "immagini/prod-01.jpg",
-    titolo_it:    "Manifattura bioceramic. Lo stesso materiale dell'originale.",
-    titolo_en:    "Bioceramic craftsmanship. The same material as the original.",
+    titolo_it:    "Lo stesso composto ceramico. La stessa cura manifatturiera.",
+    titolo_en:    "The same ceramic compound. The same craftsmanship.",
     testo_it:     "Il Royal Pop è già un oggetto straordinario: bioceramic 40mm, movimento meccanico Sistem51, edizione limitata Swatch × Audemars Piguet. PopMods nasce per esaltarlo — non per cambiarlo. Ogni kit è realizzato in bioceramic di qualità superiore, lo stesso composto ceramico-polimerico dell'originale, lavorato con tolleranze precise al decimo di millimetro. Il risultato è un fit perfetto, una finitura coerente, un'estetica che rispetta l'opera di partenza.",
     testo_en:     "The Royal Pop is already something special: 40mm bioceramic, Sistem51 mechanical movement, a limited edition from Swatch × Audemars Piguet. PopMods exists to enhance it — not to alter it. Every kit is crafted in superior-grade bioceramic, the same ceramic-polymer compound as the original, machined to within a tenth of a millimetre. The result is a perfect fit, a seamless finish, and an aesthetic that stays true to the original.",
     cta_it:       "",
@@ -1081,9 +1080,9 @@ const CONFIG = {
         <span class="it-inline">Lingua</span><span class="en-inline">Language</span>
       </p>
       <div class="mobile-controls-btns">
-        <button class="lang-btn active" id="mob-btn-it" onclick="setLang('it')">IT</button>
+        <button class="lang-btn active" id="mob-btn-it" onclick="setLang('it'); toggleMenu()">IT</button>
         <span class="lang-sep">/</span>
-        <button class="lang-btn" id="mob-btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
       </div>
     </div>
     <div class="mobile-controls-group">
@@ -1091,9 +1090,9 @@ const CONFIG = {
         <span class="it-inline">Valuta</span><span class="en-inline">Currency</span>
       </p>
       <div class="mobile-controls-btns">
-        <button class="currency-btn active" data-currency="EUR" onclick="setCurrency('EUR')">€ EUR</button>
+        <button class="currency-btn active" data-currency="EUR" onclick="setCurrency('EUR'); toggleMenu()">€ EUR</button>
         <span class="currency-sep">/</span>
-        <button class="currency-btn" data-currency="USD" onclick="setCurrency('USD')">$ USD</button>
+        <button class="currency-btn" data-currency="USD" onclick="setCurrency('USD'); toggleMenu()">$ USD</button>
       </div>
     </div>
   </div>
