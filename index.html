@@ -566,6 +566,10 @@ const CONFIG = {
     margin-bottom: 48px; line-height: 1.75;
   }
 
+  .hero-ctas {
+    display: flex; flex-wrap: wrap; gap: 12px;
+  }
+
   /* ── BUTTONS ── */
   .btn {
     display: inline-block; padding: 14px 36px;
@@ -1265,10 +1269,10 @@ const CONFIG = {
     <h1 class="hero-title en" id="hero-title-en"></h1>
     <p class="hero-sub it" id="hero-sub-it"></p>
     <p class="hero-sub en" id="hero-sub-en"></p>
-    <a href="#collection" class="btn btn-pink">
-      <span class="it-inline" id="hero-cta-it"></span>
-      <span class="en-inline" id="hero-cta-en"></span>
-    </a>
+    <div class="hero-ctas">
+      <a href="#ceramic-core" class="btn btn-pink">Ceramic Core →</a>
+      <a href="#pop-flex" class="btn btn-outline">Pop Flex →</a>
+    </div>
   </div>
 </section>
 
@@ -1542,8 +1546,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('hero-title-en').innerHTML = h.titolo_en;
   document.getElementById('hero-sub-it').textContent = h.testo_it;
   document.getElementById('hero-sub-en').textContent = h.testo_en;
-  document.getElementById('hero-cta-it').textContent = h.cta_it;
-  document.getElementById('hero-cta-en').textContent = h.cta_en;
+
   setHeroMedia('hero-img-wrap', h.video, h.immagine);
 
   // Prodotti — due collezioni
