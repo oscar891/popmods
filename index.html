@@ -893,6 +893,19 @@ const CONFIG = {
     background: #fff;
     overflow: hidden;
   }
+  /* dark gradient veil — makes white-background images readable against overlay */
+  .pm-gallery::after {
+    content: '';
+    position: absolute;
+    inset: 40% 0 0 0;
+    background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(15,10,8,0.55) 60%,
+      rgba(15,10,8,0.80) 100%
+    );
+    pointer-events: none;
+    z-index: 4;
+  }
   /* dots navigation — overlaid on image */
   .pm-thumbs {
     position: absolute;
@@ -909,14 +922,14 @@ const CONFIG = {
     width: 7px; height: 7px; flex-shrink: 0;
     border-radius: 50%;
     border: none;
-    background: rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.45);
     cursor: pointer;
     opacity: 1;
     transition: background 0.2s, transform 0.2s;
     overflow: hidden;
   }
-  .pm-thumb.active { background: var(--accent); transform: scale(1.35); }
-  .pm-thumb:hover { background: rgba(0,0,0,0.4); }
+  .pm-thumb.active { background: #fff; transform: scale(1.35); }
+  .pm-thumb:hover { background: rgba(255,255,255,0.75); }
   .pm-thumb img { display: none; } /* dots only, no thumbnail images */
 
   /* main image fills gallery */
@@ -946,15 +959,15 @@ const CONFIG = {
   .pm-main-img:hover .pm-arrow { opacity: 1; }
   .pm-arrow:hover { background: #fff; }
 
-  /* info overlay — frosted panel at bottom */
+  /* info overlay — transparent, sits on top of gradient veil */
   .pm-info {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    padding: 14px 20px 18px;
-    background: rgba(248,244,236,0.96);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(0,0,0,0.09);
+    padding: 14px 20px 22px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-top: none;
     display: grid;
     grid-template:
       "name price" auto
@@ -975,14 +988,15 @@ const CONFIG = {
   .pm-info .pm-pay-row { display: none !important; }
   .pm-close {
     position: absolute; top: 14px; right: 16px;
-    background: rgba(0,0,0,0.08); border: none; cursor: pointer;
+    background: rgba(0,0,0,0.30); border: none; cursor: pointer;
     width: 30px; height: 30px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: var(--black); line-height: 1;
+    font-size: 18px; color: #fff; line-height: 1;
     transition: background 0.2s; z-index: 10;
     font-weight: 300;
+    backdrop-filter: blur(4px);
   }
-  .pm-close:hover { background: rgba(0,0,0,0.15); }
+  .pm-close:hover { background: rgba(0,0,0,0.5); }
 
   .pm-material {
     display: none; /* hidden in overlay — space is too precious */
@@ -993,12 +1007,14 @@ const CONFIG = {
   .pm-name {
     font-family: var(--display); font-size: 20px; font-weight: 800;
     letter-spacing: -0.02em; line-height: 1.1;
-    color: var(--black); margin: 0;
+    color: #fff; margin: 0;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.35);
   }
   .pm-price {
     font-family: var(--display); font-size: 18px; font-weight: 700;
     color: var(--accent); margin: 0;
     white-space: nowrap;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
   .pm-divider { display: none; }
   .pm-desc { display: none; } /* removed from overlay — shown on card */
