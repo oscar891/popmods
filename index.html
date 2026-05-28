@@ -2008,6 +2008,7 @@ let _galleryIdx = 0;
 // product page router state
 let _ppImgs = [];
 let _ppImgIdx = 0;
+let _ppGridScrollY = 0;
 
 function addToCart(idx) {
   if (idx === null || idx === undefined) return;
@@ -2222,6 +2223,7 @@ document.addEventListener('keydown', e => {
 (function() {
   let tx = 0;
   const el = document.getElementById('pm-overlay');
+  if (!el) return;
   el.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
   el.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - tx;
@@ -2315,8 +2317,6 @@ function showGrid() {
   document.body.classList.remove('pp-active');
   document.getElementById('product-page').setAttribute('aria-hidden', 'true');
 }
-
-let _ppGridScrollY = 0;
 
 function openProduct(slug) {
   _ppGridScrollY = window.scrollY;
