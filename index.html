@@ -886,10 +886,10 @@ const CONFIG = {
   }
   .pm-overlay.open .pm-modal { transform: translateY(0) scale(1); }
 
-  /* gallery fills entire modal */
+  /* gallery fills entire modal — info overlays on top */
   .pm-gallery {
     position: absolute;
-    inset: 0 0 120px 0; /* leave room for info overlay */
+    inset: 0;
     background: #fff;
     overflow: hidden;
   }
