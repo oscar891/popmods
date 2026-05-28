@@ -876,10 +876,11 @@ const CONFIG = {
   .pm-modal {
     background: var(--off);
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    max-width: 580px; width: 100%;
-    max-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    max-width: 880px; width: 100%;
+    height: 86vh;
+    max-height: 660px;
     overflow: hidden;
     transform: translateY(24px) scale(0.98);
     transition: transform 0.3s ease;
@@ -887,17 +888,17 @@ const CONFIG = {
   }
   .pm-overlay.open .pm-modal { transform: translateY(0) scale(1); }
 
-  /* gallery — full width, fixed height */
+  /* gallery — left column, full height */
   .pm-gallery {
     background: #fff;
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow: hidden;
   }
   .pm-main-img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    max-height: 500px;
+    flex: 1;
+    min-height: 0;
     position: relative;
     overflow: hidden;
   }
@@ -905,7 +906,7 @@ const CONFIG = {
     position: absolute;
     inset: 0;
     width: 100%; height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: opacity 0.3s ease;
   }
   /* gallery arrows */
@@ -943,12 +944,11 @@ const CONFIG = {
   .pm-thumb:hover { opacity: 1; }
   .pm-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
 
-  /* info — below gallery */
+  /* info — right column */
   .pm-info {
-    padding: 28px 32px 32px;
+    padding: 40px 28px 32px;
     display: flex; flex-direction: column;
     overflow-y: auto;
-    flex: 1; min-height: 0;
     background: var(--off);
   }
   .pm-close {
@@ -1198,10 +1198,17 @@ const CONFIG = {
   /* modal responsive */
   @media (max-width: 768px) {
     .pm-overlay { padding: 0; align-items: flex-end; }
-    .pm-modal { max-width: 100%; border-radius: 16px 16px 0 0; }
-    .pm-main-img { aspect-ratio: 1 / 1; max-height: none; }
+    .pm-modal {
+      grid-template-columns: 1fr;
+      grid-template-rows: 72vw 1fr;
+      height: auto;
+      max-height: 90vh;
+      max-width: 100%;
+      border-radius: 16px 16px 0 0;
+    }
+    .pm-gallery { height: auto; }
     .pm-main-img .pm-arrow { opacity: 1; }
-    .pm-info { padding: 20px 20px 28px; }
+    .pm-info { padding: 20px 20px 28px; overflow-y: auto; }
     .pm-name { font-size: 22px; }
   }
 
