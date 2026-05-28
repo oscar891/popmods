@@ -901,6 +901,7 @@ const CONFIG = {
     display: flex; flex-direction: column; gap: 6px;
     padding: 10px 8px;
     width: 76px; flex-shrink: 0;
+    order: -1; /* forces thumbs before main-img regardless of HTML order */
     background: #f7f7f7;
     overflow-y: auto; overflow-x: hidden;
     scrollbar-width: none;
@@ -1210,6 +1211,7 @@ const CONFIG = {
     .pm-gallery { height: auto; flex-direction: column; }
     .pm-thumbs {
       flex-direction: row; width: 100%;
+      order: 0;
       overflow-x: auto; overflow-y: hidden;
       border-right: none; border-top: 1px solid rgba(0,0,0,0.07);
       padding: 8px 10px;
