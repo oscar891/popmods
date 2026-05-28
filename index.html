@@ -874,60 +874,58 @@ const CONFIG = {
   .pm-overlay.open { opacity: 1; pointer-events: all; }
 
   .pm-modal {
-    background: var(--off);
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    max-width: 880px; width: 100%;
-    height: 86vh;
-    max-height: 660px;
+    background: #fff;
+    border-radius: 12px;
+    display: block;
+    position: relative;
+    max-width: 620px; width: calc(100% - 32px);
+    height: 90vh; max-height: 800px;
     overflow: hidden;
     transform: translateY(24px) scale(0.98);
     transition: transform 0.3s ease;
-    position: relative;
   }
   .pm-overlay.open .pm-modal { transform: translateY(0) scale(1); }
 
-  /* gallery — left column, full height */
+  /* gallery fills entire modal */
   .pm-gallery {
+    position: absolute;
+    inset: 0 0 120px 0; /* leave room for info overlay */
     background: #fff;
-    display: flex;
-    flex-direction: row; /* thumbs left, main image right */
-    height: 100%;
     overflow: hidden;
   }
-  /* vertical thumbnail strip — left side */
+  /* dots navigation — overlaid on image */
   .pm-thumbs {
-    display: flex; flex-direction: column; gap: 6px;
-    padding: 10px 8px;
-    width: 76px; flex-shrink: 0;
-    order: -1; /* forces thumbs before main-img regardless of HTML order */
-    background: #f7f7f7;
-    overflow-y: auto; overflow-x: hidden;
-    scrollbar-width: none;
-    border-right: 1px solid rgba(0,0,0,0.07);
+    position: absolute;
+    bottom: 128px; left: 0; right: 0;
+    display: flex; flex-direction: row;
+    justify-content: center; gap: 7px;
+    padding: 8px;
+    background: none; border: none;
+    width: auto;
+    z-index: 6; pointer-events: all;
   }
   .pm-thumbs::-webkit-scrollbar { display: none; }
   .pm-thumb {
-    width: 58px; height: 58px; flex-shrink: 0;
-    border-radius: 3px; overflow: hidden; cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.2s, opacity 0.2s;
-    opacity: 0.55;
+    width: 7px; height: 7px; flex-shrink: 0;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.18);
+    cursor: pointer;
+    opacity: 1;
+    transition: background 0.2s, transform 0.2s;
+    overflow: hidden;
   }
-  .pm-thumb.active { border-color: var(--accent); opacity: 1; }
-  .pm-thumb:hover { opacity: 1; }
-  .pm-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; }
-  /* main image — fills remaining width */
+  .pm-thumb.active { background: var(--accent); transform: scale(1.35); }
+  .pm-thumb:hover { background: rgba(0,0,0,0.4); }
+  .pm-thumb img { display: none; } /* dots only, no thumbnail images */
+
+  /* main image fills gallery */
   .pm-main-img {
-    flex: 1;
-    min-width: 0;
-    position: relative;
+    position: absolute; inset: 0;
     overflow: hidden;
   }
   .pm-main-img img {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: contain;
     transition: opacity 0.3s ease;
@@ -935,58 +933,75 @@ const CONFIG = {
   /* gallery arrows */
   .pm-arrow {
     position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.75); border: none; cursor: pointer;
-    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.82); border: none; cursor: pointer;
+    width: 36px; height: 36px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 14px; color: var(--black); z-index: 5;
+    font-size: 16px; color: var(--black); z-index: 5;
     opacity: 0; transition: opacity 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.13);
     backdrop-filter: blur(4px);
   }
-  .pm-arrow-prev { left: 10px; }
-  .pm-arrow-next { right: 10px; }
+  .pm-arrow-prev { left: 14px; }
+  .pm-arrow-next { right: 14px; }
   .pm-main-img:hover .pm-arrow { opacity: 1; }
   .pm-arrow:hover { background: #fff; }
 
-  /* info — right column */
+  /* info overlay — frosted panel at bottom */
   .pm-info {
-    padding: 32px 28px 28px;
-    display: flex; flex-direction: column;
-    overflow-y: auto;
-    background: var(--off);
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 14px 20px 18px;
+    background: rgba(248,244,236,0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(0,0,0,0.09);
+    display: grid;
+    grid-template:
+      "name price" auto
+      "btn  btn"   auto / 1fr auto;
+    gap: 10px 14px;
+    align-items: center;
+    overflow: visible;
+    z-index: 5;
   }
+  .pm-info .pm-name  { grid-area: name; }
+  .pm-info .pm-price { grid-area: price; }
+  .pm-info .pm-add-cart { grid-area: btn; }
+  .pm-info .pm-material,
+  .pm-info .pm-divider,
+  .pm-info .pm-desc,
+  .pm-info .pm-features,
+  .pm-info .pm-cta,
+  .pm-info .pm-pay-row { display: none !important; }
   .pm-close {
-    position: absolute; top: 16px; right: 20px;
-    background: none; border: none; cursor: pointer;
-    font-size: 26px; color: #888; line-height: 1;
-    transition: color 0.2s; z-index: 10;
+    position: absolute; top: 14px; right: 16px;
+    background: rgba(0,0,0,0.08); border: none; cursor: pointer;
+    width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--black); line-height: 1;
+    transition: background 0.2s; z-index: 10;
     font-weight: 300;
   }
-  .pm-close:hover { color: var(--black); }
+  .pm-close:hover { background: rgba(0,0,0,0.15); }
 
   .pm-material {
-    display: inline-block; margin-bottom: 10px;
-    font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--gray);
-    border: 1px solid var(--border); padding: 3px 10px; border-radius: 2px;
+    display: none; /* hidden in overlay — space is too precious */
+  }
+  .pm-name-price-row {
+    display: flex; align-items: baseline; gap: 12px;
   }
   .pm-name {
-    font-family: var(--display); font-size: 26px; font-weight: 800;
-    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 6px;
-    color: var(--black);
+    font-family: var(--display); font-size: 20px; font-weight: 800;
+    letter-spacing: -0.02em; line-height: 1.1;
+    color: var(--black); margin: 0;
   }
   .pm-price {
-    font-family: var(--display); font-size: 21px; font-weight: 800;
-    color: var(--accent); margin-bottom: 18px;
+    font-family: var(--display); font-size: 18px; font-weight: 700;
+    color: var(--accent); margin: 0;
+    white-space: nowrap;
   }
-  .pm-divider {
-    width: 40px; height: 2px; background: var(--border);
-    margin-bottom: 16px;
-  }
-  .pm-desc {
-    font-size: 13px; color: var(--gray); line-height: 1.65;
-    margin-bottom: auto; padding-bottom: 20px;
-  }
+  .pm-divider { display: none; }
+  .pm-desc { display: none; } /* removed from overlay — shown on card */
   /* features hidden in modal — brand promises are in the page sections */
   .pm-features { display: none; }
   .pm-feature {
@@ -1197,29 +1212,11 @@ const CONFIG = {
   }
   .pm-add-cart:hover { background: #e04090; }
 
-  /* modal responsive — only true mobile (phones) */
-  @media (max-width: 520px) {
+  /* modal responsive */
+  @media (max-width: 480px) {
     .pm-overlay { padding: 0; align-items: flex-end; }
-    .pm-modal {
-      grid-template-columns: 1fr;
-      grid-template-rows: 72vw 1fr;
-      height: auto;
-      max-height: 90vh;
-      max-width: 100%;
-      border-radius: 16px 16px 0 0;
-    }
-    .pm-gallery { height: auto; flex-direction: column; }
-    .pm-thumbs {
-      flex-direction: row; width: 100%;
-      order: 0;
-      overflow-x: auto; overflow-y: hidden;
-      border-right: none; border-top: 1px solid rgba(0,0,0,0.07);
-      padding: 8px 10px;
-    }
-    .pm-thumb { width: 52px; height: 52px; }
-    .pm-main-img .pm-arrow { opacity: 1; }
-    .pm-info { padding: 20px 20px 28px; overflow-y: auto; }
-    .pm-name { font-size: 22px; }
+    .pm-modal { max-width: 100%; border-radius: 20px 20px 0 0; height: 92vh; }
+    .pm-arrow { opacity: 1; }
   }
 
   /* ── RESPONSIVE ── */
