@@ -1272,6 +1272,179 @@ const CONFIG = {
     .footer-desc { max-width: 100%; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   }
+
+  /* ════════════════════════════════════════════════════════════════
+     PRODUCT PAGE (hash-routed, replaces popup modal)
+     ════════════════════════════════════════════════════════════════ */
+
+  /* Hide ALL site sections when product page is active */
+  body.pp-active #navbar,
+  body.pp-active .compat-banner,
+  body.pp-active .trust-strip,
+  body.pp-active #hero-section,
+  body.pp-active #ceramic-core,
+  body.pp-active #pop-flex,
+  body.pp-active .about,
+  body.pp-active .process,
+  body.pp-active .tracker-section,
+  body.pp-active .disclaimer-bar,
+  body.pp-active #faq,
+  body.pp-active footer,
+  body.pp-active .mobile-menu,
+  body.pp-active .pm-overlay { display: none !important; }
+
+  #product-page {
+    display: none;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--off);
+  }
+  body.pp-active #product-page { display: flex; }
+
+  /* Header */
+  .pp-header {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 16px; height: 56px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .pp-back {
+    display: flex; align-items: center; gap: 6px;
+    background: none; border: none; cursor: pointer;
+    font-family: var(--sans); font-size: 14px; font-weight: 600;
+    color: var(--black); padding: 6px 0; min-width: 72px;
+    transition: color 0.2s;
+  }
+  .pp-back:hover { color: var(--accent); }
+  .pp-header-logo {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    display: inline-flex; align-items: stretch;
+    border: 2px solid #444; border-radius: 5px; overflow: hidden;
+    box-shadow: 2px 2px 0 #444; cursor: pointer;
+  }
+  .pp-header-logo span {
+    font-family: var(--display); font-weight: 800; font-size: 13px;
+    padding: 4px 6px;
+  }
+  .pp-cart-btn {
+    position: relative; display: flex; align-items: center;
+    justify-content: flex-end; min-width: 40px;
+    background: none; border: none; cursor: pointer; color: var(--black);
+  }
+  .pp-cart-btn .cart-count { position: absolute; top: -2px; right: -4px; }
+
+  /* Body layout */
+  .pp-body {
+    flex: 1; display: flex; flex-direction: column;
+  }
+  @media (min-width: 768px) {
+    .pp-body {
+      flex-direction: row; align-items: flex-start;
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      padding: 40px 32px; gap: 48px;
+    }
+  }
+
+  /* Gallery */
+  .pp-gallery-wrap {
+    position: relative; background: var(--white);
+    overflow: hidden; aspect-ratio: 1 / 1; width: 100%;
+  }
+  @media (min-width: 768px) {
+    .pp-gallery-wrap {
+      width: 50%; flex-shrink: 0; aspect-ratio: unset;
+      position: sticky; top: 72px;
+      border-radius: 12px;
+      height: calc(100vh - 120px); max-height: 680px;
+    }
+  }
+  .pp-main-img {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .pp-main-img img {
+    width: 100%; height: 100%;
+    object-fit: contain; transition: opacity 0.25s ease;
+  }
+  .pp-arr {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--black); z-index: 5;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.13);
+    transition: background 0.2s;
+  }
+  .pp-arr-prev { left: 12px; }
+  .pp-arr-next { right: 12px; }
+  .pp-arr:hover { background: #fff; }
+  .pp-dots {
+    position: absolute; bottom: 12px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 6px; pointer-events: all;
+  }
+  .pp-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(0,0,0,0.20); border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .pp-dot.active { background: var(--accent); transform: scale(1.35); }
+
+  /* Info panel */
+  .pp-info-wrap {
+    flex: 1; padding: 24px 20px 60px;
+  }
+  @media (min-width: 768px) {
+    .pp-info-wrap { padding: 0 0 60px; }
+  }
+  .pp-material-tag {
+    display: inline-block;
+    font-family: var(--sans); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gray); border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: 2px; margin-bottom: 16px;
+  }
+  .pp-name-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 8px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .pp-name {
+    font-family: var(--display); font-size: clamp(22px,5vw,32px); font-weight: 800;
+    letter-spacing: -0.02em; line-height: 1.1; color: var(--black); margin: 0;
+  }
+  .pp-price-val {
+    font-family: var(--display); font-size: clamp(20px,4vw,26px); font-weight: 700;
+    color: var(--accent); margin: 0; white-space: nowrap;
+  }
+  .pp-sep { height: 1px; background: var(--border); margin: 18px 0; }
+  .pp-desc {
+    font-family: var(--sans); font-size: 15px; color: var(--gray);
+    line-height: 1.7; margin: 0 0 20px;
+  }
+  .pp-features {
+    list-style: none; padding: 0; margin: 0 0 28px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .pp-features li {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: 13px; color: var(--black);
+  }
+  .pp-features li::before {
+    content: ''; display: block; width: 5px; height: 5px;
+    border-radius: 50%; background: var(--accent); flex-shrink: 0;
+  }
+  .pp-add-cart {
+    display: block; width: 100%;
+    background: var(--accent); color: #fff; border: none;
+    padding: 16px 24px; font-family: var(--sans); font-size: 12px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; text-align: center; border-radius: 3px;
+    transition: background 0.2s; margin-bottom: 16px;
+  }
+  .pp-add-cart:hover { background: #e04090; }
+  .pp-pay-row { display: flex; justify-content: center; }
 </style>
 
 <!-- ── NAVBAR ── -->
@@ -1649,8 +1822,8 @@ document.addEventListener('DOMContentLoaded', function() {
           : '';
         const imgsAttr = JSON.stringify(imgs).replace(/'/g, '&#39;');
         return `
-        <div class="product-card" onclick="if(!_cardSwipe)openProduct(${i});_cardSwipe=false;" role="button" tabindex="0"
-             onkeydown="if(event.key==='Enter')openProduct(${i})">
+        <div class="product-card" onclick="if(!_cardSwipe){location.hash='${toSlug(p.nome)}';}; _cardSwipe=false;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){location.hash='${toSlug(p.nome)}'}">
           <div class="product-img" data-imgs='${imgsAttr}' data-img-idx="0">
             ${(p.badge||p.badge_it) ? `<span class="badge" style="background:${p.badge_color};${p.badge_color==='#C7FF3D'?'color:#171717;':''}"><span class="it-inline">${p.badge_it||p.badge}</span><span class="en-inline">${p.badge_en||p.badge}</span></span>` : ''}
             ${imgOrPlaceholder(mainImg, p.nome)}
@@ -1714,6 +1887,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Init lingua
   setLang('it');
+
+  // Init hash router (deferred so page paint completes first)
+  setTimeout(handleRoute, 0);
 });
 
 // ── LINGUA ──
@@ -1829,6 +2005,9 @@ let _cart = [];
 let _currentProductIdx = null;
 let _galleryImgs = [];
 let _galleryIdx = 0;
+// product page router state
+let _ppImgs = [];
+let _ppImgIdx = 0;
 
 function addToCart(idx) {
   if (idx === null || idx === undefined) return;
@@ -1873,10 +2052,12 @@ function _getCartTotal() {
 
 function _updateCartCount() {
   const total = _cart.reduce((sum, item) => sum + item.qty, 0);
-  const el = document.getElementById('cart-count');
-  if (!el) return;
-  el.textContent = total;
-  el.classList.toggle('has-items', total > 0);
+  ['cart-count', 'pp-cart-count'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = total;
+    el.classList.toggle('has-items', total > 0);
+  });
 }
 
 function _renderCartBody() {
@@ -2047,9 +2228,179 @@ document.addEventListener('keydown', e => {
     if (Math.abs(dx) > 40) galleryNav(dx < 0 ? 1 : -1);
   }, { passive: true });
 })();
+
+// ── PRODUCT PAGE ROUTER ──────────────────────────────────────────
+function toSlug(nome) {
+  return nome.toLowerCase()
+    .replace(/à|á|â|ã|ä/g,'a').replace(/è|é|ê|ë/g,'e')
+    .replace(/ì|í|î|ï/g,'i').replace(/ò|ó|ô|õ|ö/g,'o')
+    .replace(/ù|ú|û|ü/g,'u').replace(/ñ/g,'n')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function ppSetImg(idx) {
+  _ppImgIdx = (idx + _ppImgs.length) % _ppImgs.length;
+  const img = document.getElementById('pp-img');
+  if (!img) return;
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = _ppImgs[_ppImgIdx]; img.style.opacity = '1'; }, 150);
+  document.querySelectorAll('#pp-dots .pp-dot').forEach((d, i) => d.classList.toggle('active', i === _ppImgIdx));
+}
+
+function ppGalleryNav(dir) { ppSetImg(_ppImgIdx + dir); }
+
+function renderProductPage(p) {
+  const lang = document.documentElement.lang || 'it';
+  _ppImgs = p.immagini && p.immagini.length ? p.immagini : [p.immagine || ''];
+  _ppImgIdx = 0;
+
+  // Image
+  const img = document.getElementById('pp-img');
+  img.src = _ppImgs[0]; img.alt = p.nome; img.style.opacity = '1';
+
+  // Arrows
+  const multi = _ppImgs.length > 1;
+  document.getElementById('pp-arrow-prev').style.display = multi ? 'flex' : 'none';
+  document.getElementById('pp-arrow-next').style.display = multi ? 'flex' : 'none';
+
+  // Dots
+  document.getElementById('pp-dots').innerHTML = multi
+    ? _ppImgs.map((_, i) => `<button class="pp-dot${i===0?' active':''}" onclick="ppSetImg(${i})"></button>`).join('')
+    : '';
+
+  // Text info
+  const mat = lang === 'en' ? (p.materiale_en || p.materiale_it || '') : (p.materiale_it || '');
+  document.getElementById('pp-material').textContent = mat;
+  document.getElementById('pp-name').textContent = p.nome;
+
+  const priceEl = document.getElementById('pp-price-val');
+  priceEl.dataset.eur = p.prezzo;
+  priceEl.textContent = formatPrice(p.prezzo);
+
+  document.getElementById('pp-desc').textContent = lang === 'en'
+    ? (p.dettaglio_en || p.desc_en || '')
+    : (p.dettaglio_it || p.desc_it || '');
+
+  const feats = lang === 'en'
+    ? ["Bioceramic — same compound as the original", "12-month warranty", "Ships within 48h", "No tools required"]
+    : ["Bioceramic — stesso composto dell'originale", "Garanzia 12 mesi", "Spedizione entro 48h", "Nessun attrezzo necessario"];
+  document.getElementById('pp-features').innerHTML = feats.map(f => `<li>${f}</li>`).join('');
+
+  // Add to cart
+  const productIdx = CONFIG.prodotti.findIndex(x => x.nome === p.nome);
+  document.getElementById('pp-add-cart').onclick = () => { addToCart(productIdx); openCart(); };
+
+  // Touch swipe for gallery
+  const gw = document.getElementById('pp-gallery-wrap');
+  if (gw && !gw._swipeInit) {
+    let tx = 0;
+    gw.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    gw.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) ppGalleryNav(dx < 0 ? 1 : -1);
+    }, { passive: true });
+    gw._swipeInit = true;
+  }
+}
+
+function showProductPage(p) {
+  document.body.classList.add('pp-active');
+  document.getElementById('product-page').setAttribute('aria-hidden', 'false');
+  renderProductPage(p);
+  window.scrollTo(0, 0);
+}
+
+function showGrid() {
+  document.body.classList.remove('pp-active');
+  document.getElementById('product-page').setAttribute('aria-hidden', 'true');
+}
+
+function handleRoute() {
+  const hash = location.hash.slice(1);
+  if (hash) {
+    const p = CONFIG.prodotti.find(x => toSlug(x.nome) === hash);
+    if (p) { showProductPage(p); return; }
+  }
+  showGrid();
+}
+
+window.addEventListener('hashchange', handleRoute);
 </script>
 
-<!-- ── PRODUCT MODAL ── -->
+<!-- ── PRODUCT PAGE (hash-routed) ── -->
+<div id="product-page" aria-hidden="true">
+
+  <header class="pp-header">
+    <button class="pp-back" onclick="history.back()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      <span class="it-inline">Torna</span><span class="en-inline">Back</span>
+    </button>
+    <div class="pp-header-logo" onclick="history.back()">
+      <span style="background:#FF5FA2;color:#171717;">P</span>
+      <span style="background:#C7FF3D;color:#171717;">o</span>
+      <span style="background:#244CFF;color:#fff;">p</span>
+      <span style="background:#FFB84D;color:#171717;">M</span>
+      <span style="background:#FF5FA2;color:#171717;">o</span>
+      <span style="background:#C7FF3D;color:#171717;">d</span>
+      <span style="background:#244CFF;color:#fff;">s</span>
+    </div>
+    <button class="pp-cart-btn" onclick="openCart()" aria-label="Carrello">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <span class="cart-count" id="pp-cart-count">0</span>
+    </button>
+  </header>
+
+  <div class="pp-body">
+
+    <!-- Gallery -->
+    <div class="pp-gallery-wrap" id="pp-gallery-wrap">
+      <div class="pp-main-img">
+        <img id="pp-img" src="" alt="" />
+      </div>
+      <button class="pp-arr pp-arr-prev" id="pp-arrow-prev" onclick="ppGalleryNav(-1)" aria-label="Precedente">&#8592;</button>
+      <button class="pp-arr pp-arr-next" id="pp-arrow-next" onclick="ppGalleryNav(1)" aria-label="Successiva">&#8594;</button>
+      <div class="pp-dots" id="pp-dots"></div>
+    </div>
+
+    <!-- Info -->
+    <div class="pp-info-wrap">
+      <span class="pp-material-tag" id="pp-material"></span>
+      <div class="pp-name-row">
+        <h1 class="pp-name" id="pp-name"></h1>
+        <p class="pp-price-val" id="pp-price-val"></p>
+      </div>
+      <div class="pp-sep"></div>
+      <p class="pp-desc" id="pp-desc"></p>
+      <ul class="pp-features" id="pp-features"></ul>
+      <button class="pp-add-cart" id="pp-add-cart">
+        <span class="it-inline">Aggiungi al carrello</span>
+        <span class="en-inline">Add to cart</span>
+      </button>
+      <div class="pp-pay-row">
+        <div class="pay-row">
+          <span class="pay-badge pay-visa"><span>VISA</span></span>
+          <span class="pay-badge pay-mc"><span class="mc-r"></span><span class="mc-o"></span></span>
+          <span class="pay-badge pay-apple">
+            <svg class="apple-logo" viewBox="0 0 14 17" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M13.2 12.4c-.3.7-.6 1.3-1 1.9-.5.8-.9 1.3-1.3 1.6-.5.5-1.1.7-1.7.7-.4 0-.9-.1-1.5-.4-.6-.2-1.1-.4-1.5-.4-.5 0-1 .1-1.5.4-.5.3-1 .4-1.4.4-.6 0-1.2-.3-1.7-.7-.4-.4-.9-1-1.4-1.7C.7 13.4.3 12.6.1 11.7c-.2-1-.3-1.9-.3-2.8 0-1 .2-1.9.6-2.7.4-.7.8-1.2 1.4-1.6.6-.4 1.2-.6 1.9-.6.4 0 .9.1 1.5.4.6.2 1 .4 1.2.4.2 0 .6-.1 1.3-.4.7-.2 1.3-.4 1.7-.3.5 0 1 .1 1.4.4.4.2.8.5 1.1 1-.4.3-.8.6-1 1.1-.3.5-.4 1-.4 1.5 0 .6.2 1.1.5 1.5.3.5.7.8 1.1 1zM9.8 1c0 .5-.2 1-.5 1.5-.4.5-.8.9-1.4 1.1-.1 0-.2 0-.3 0 0-.5.2-1 .5-1.5C8.4 1.7 9 1.3 9.6 1c.1 0 .2 0 .3 0z"/></svg>
+            <span>Pay</span>
+          </span>
+          <span class="pay-badge pay-google">
+            <span class="g-b" style="color:#4285F4">G</span><span class="g-t">Pay</span>
+          </span>
+          <span class="pay-badge pay-paypal">
+            <span class="pp-dark">Pay</span><span class="pp-light">Pal</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── PRODUCT MODAL (kept for cart compatibility) ── -->
 <div class="pm-overlay" id="pm-overlay" onclick="if(event.target===this)closeProduct()">
   <div class="pm-modal">
     <button class="pm-close" onclick="closeProduct()" aria-label="Close">×</button>
