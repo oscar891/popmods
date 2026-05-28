@@ -896,7 +896,8 @@ const CONFIG = {
   }
   .pm-main-img {
     width: 100%;
-    height: min(56vh, 520px);
+    aspect-ratio: 1 / 1;
+    max-height: 500px;
     position: relative;
     overflow: hidden;
   }
@@ -1198,7 +1199,7 @@ const CONFIG = {
   @media (max-width: 768px) {
     .pm-overlay { padding: 0; align-items: flex-end; }
     .pm-modal { max-width: 100%; border-radius: 16px 16px 0 0; }
-    .pm-main-img { height: 62vw; }
+    .pm-main-img { aspect-ratio: 1 / 1; max-height: none; }
     .pm-main-img .pm-arrow { opacity: 1; }
     .pm-info { padding: 20px 20px 28px; }
     .pm-name { font-size: 22px; }
