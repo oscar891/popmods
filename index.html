@@ -2316,7 +2316,10 @@ function showGrid() {
   document.getElementById('product-page').setAttribute('aria-hidden', 'true');
 }
 
+let _ppGridScrollY = 0;
+
 function openProduct(slug) {
+  _ppGridScrollY = window.scrollY;           // memorizza posizione griglia
   history.pushState(null, '', '/#' + slug);
   const p = CONFIG.prodotti.find(x => toSlug(x.nome) === slug);
   if (p) showProductPage(p);
@@ -2336,7 +2339,8 @@ window.addEventListener('hashchange', handleRoute);
 function ppGoBack() {
   history.replaceState(null, '', '/');
   showGrid();
-  window.scrollTo(0, 0);
+  // Ripristina la posizione della griglia dopo che il DOM è tornato visibile
+  requestAnimationFrame(() => window.scrollTo({ top: _ppGridScrollY, behavior: 'instant' }));
 }
 </script>
 
