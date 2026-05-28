@@ -47,7 +47,7 @@ const CONFIG = {
   // ── HERO ──────────────────────────────────────────────────────
   hero: {
     video:        "",
-    immagine:     "immagini/hero.jpg",
+    immagine:     "",
     label_it:     "Kit · Royal Pop",
     label_en:     "Kit · Royal Pop",
     titolo_it:    "Dal pocket watch<br>al tuo <em>polso</em>.",
@@ -589,6 +589,42 @@ const CONFIG = {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
     color: #aaa; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  /* ── COLOR-CYCLE HERO ── */
+  @keyframes popmods-hue {
+    0%,    10.5% { background-color: #FF5FA2; }   /* OTG ROZ */
+    12.5%, 23%   { background-color: #00B8A9; }   /* Làn Ba */
+    25%,   35.5% { background-color: #244CFF; }   /* Blaue Acht */
+    37.5%, 48%   { background-color: #C7FF3D; }   /* Green Eight */
+    50%,   60.5% { background-color: #F0EBE3; }   /* Huit Blanc */
+    62.5%, 73%   { background-color: #1C1C1C; }   /* Ocho Negro */
+    75%,   85.5% { background-color: #FF8C00; }   /* Orenji Hachi */
+    87.5%, 98%   { background-color: #CC0000; }   /* Otto Rosso */
+    100%         { background-color: #FF5FA2; }
+  }
+  .hero-chromatic {
+    width: 100%; height: 100%; position: relative;
+    animation: popmods-hue 24s linear infinite;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hc-bottom {
+    position: absolute; bottom: 28px; left: 0; right: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .hc-label {
+    font-family: var(--sans); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: white; mix-blend-mode: difference;
+  }
+  .hc-dots {
+    display: flex; gap: 8px; align-items: center;
+  }
+  .hcd {
+    display: block; width: 11px; height: 11px; border-radius: 50%;
+    box-shadow: 0 0 0 1.5px rgba(255,255,255,0.55), 0 0 0 2.5px rgba(0,0,0,0.12);
+    flex-shrink: 0;
   }
 
   .hero-body {
@@ -1857,6 +1893,22 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('hero-sub-en').textContent = h.testo_en;
 
   setHeroMedia('hero-img-wrap', h.video, h.immagine);
+  // Color-cycle panel — sostituisce il placeholder quando non c'è immagine/video
+  if (!h.video && !h.immagine) {
+    document.getElementById('hero-img-wrap').innerHTML = `
+      <div class="hero-chromatic">
+        <div class="hc-bottom">
+          <span class="hc-label">08 colorways</span>
+          <div class="hc-dots">
+            ${[['#FF5FA2','OTG ROZ'],['#00B8A9','Làn Ba'],['#244CFF','Blaue Acht'],
+               ['#C7FF3D','Green Eight'],['#F0EBE3','Huit Blanc'],['#1C1C1C','Ocho Negro'],
+               ['#FF8C00','Orenji Hachi'],['#CC0000','Otto Rosso']]
+              .map(([c,n]) => `<span class="hcd" style="background:${c}" title="${n}"></span>`)
+              .join('')}
+          </div>
+        </div>
+      </div>`;
+  }
 
   // Prodotti — due collezioni
   function renderGrid(containerId, collezione) {
