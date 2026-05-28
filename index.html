@@ -2117,7 +2117,7 @@ const _origSetCurrency = setCurrency;
 
 // ════════════════════════════════════════════════════════════════
 
-function openProduct(idx) {
+function _openModal(idx) {
   _currentProductIdx = idx;
   const p = CONFIG.prodotti[idx];
   const lang = document.documentElement.lang || 'it';
@@ -2319,10 +2319,10 @@ function showGrid() {
 let _ppGridScrollY = 0;
 
 function openProduct(slug) {
-  _ppGridScrollY = window.scrollY;           // memorizza posizione griglia
-  history.pushState(null, '', '/#' + slug);
+  _ppGridScrollY = window.scrollY;
+  try { history.pushState(null, '', '/#' + slug); } catch(e) {}
   const p = CONFIG.prodotti.find(x => toSlug(x.nome) === slug);
-  if (p) showProductPage(p);
+  if (p) { showProductPage(p); } else { console.warn('[PP] prodotto non trovato per slug:', slug); }
 }
 
 function handleRoute() {
@@ -2337,9 +2337,8 @@ function handleRoute() {
 window.addEventListener('hashchange', handleRoute);
 
 function ppGoBack() {
-  history.replaceState(null, '', '/');
+  try { history.replaceState(null, '', '/'); } catch(e) {}
   showGrid();
-  // Ripristina la posizione della griglia dopo che il DOM è tornato visibile
   requestAnimationFrame(() => window.scrollTo({ top: _ppGridScrollY, behavior: 'instant' }));
 }
 </script>
