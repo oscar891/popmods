@@ -376,6 +376,20 @@ const CONFIG = {
     cta_url:      "",
   },
 
+  // ── CHECKOUT ──────────────────────────────────────────────────
+  checkout: {
+    /*
+      Come ottenere il Stripe Payment Link:
+      1. Vai su dashboard.stripe.com → Payment Links → Create link
+      2. Aggiungi i prodotti (puoi usare un prodotto generico "PopMods Kit")
+      3. Copia l'URL e incollalo in stripe_payment_link
+    */
+    stripe_payment_link: "",   // incolla qui il Stripe Payment Link quando disponibile
+    // es: "https://buy.stripe.com/xxxxxxxx"
+    mode: "stripe",            // "stripe" | "disabled"
+    currency: "EUR",
+  },
+
   // ── PROCESSO ──────────────────────────────────────────────────
   processo: [
     {
@@ -2205,6 +2219,28 @@ function _renderCartBody() {
   totalEl.textContent = formatPrice(_getCartTotal());
 }
 
+function handleCheckout() {
+  const cfg = CONFIG.checkout;
+  if (!cfg || cfg.mode === "disabled" || !cfg.stripe_payment_link) {
+    alert("Il checkout non è ancora disponibile. Riprova presto.");
+    return;
+  }
+  // costruisce URL con parametri carrello (solo informativi, Stripe gestisce il pagamento)
+  const items = _cart.map(item =>
+    `${encodeURIComponent(item.nome)} x${item.qty}`
+  ).join(", ");
+  const url = cfg.stripe_payment_link;
+  window.open(url, "_blank");
+}
+
+function handleAddToCart(idx) {
+  addToCart(idx);
+  closeProduct();
+  // Apre sempre il carrello — non fa redirect automatico a Stripe.
+  // L'utente decide quando procedere al checkout dal drawer.
+  openCart();
+}
+
 function openCart() {
   _renderCartBody();
   document.getElementById('cart-overlay').classList.add('open');
@@ -2548,7 +2584,7 @@ function ppGoBack() {
       <div class="pm-divider"></div>
       <p class="pm-desc" id="pm-desc"></p>
       <div class="pm-features" id="pm-features"></div>
-      <button class="pm-add-cart" id="pm-add-cart" onclick="addToCart(_currentProductIdx); closeProduct(); openCart();">
+      <button class="pm-add-cart" id="pm-add-cart" onclick="handleAddToCart(_currentProductIdx)">
         <span class="it-inline">Aggiungi al carrello</span>
         <span class="en-inline">Add to cart</span>
       </button>
@@ -2620,7 +2656,7 @@ function ppGoBack() {
         </span>
       </div>
 
-      <button class="cart-checkout-btn" id="cart-checkout" disabled>
+      <button class="cart-checkout-btn" id="cart-checkout" onclick="handleCheckout()">
         <span class="it-inline">Procedi all'acquisto</span>
         <span class="en-inline">Checkout</span>
       </button>
