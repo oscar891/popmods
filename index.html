@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PopMods</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF5FA2'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='20' fill='white'>P</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF5FA2'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='20' fill='white'>P</text></svg>" />
   <style id="font-fallback">
     :root {
       --sans: Arial, Helvetica, sans-serif;
@@ -1972,6 +1975,16 @@ function setCurrency(c) {
 }
 // ────────────────────────────────────────────────────────────────
 
+function detectLang() {
+  // 1. priorità: scelta salvata dall'utente
+  const saved = localStorage.getItem('popmods_lang');
+  if (saved === 'it' || saved === 'en') return saved;
+  // 2. lingua del browser
+  const browser = (navigator.language || navigator.userLanguage || 'it')
+    .toLowerCase().slice(0, 2);
+  return browser === 'it' ? 'it' : 'en';
+}
+
 function injectMeta() {
   const s = CONFIG.seo;
   const b = CONFIG.brand;
@@ -2032,6 +2045,8 @@ function injectMeta() {
 
 document.addEventListener('DOMContentLoaded', function() {
   injectMeta();
+  loadCart();
+  _updateCartCount();
 
   const b = CONFIG.brand;
   const h = CONFIG.hero;
@@ -2193,7 +2208,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `© ${b.anno_copyright} PopMods. Progetto indipendente non affiliato a Swatch o Audemars Piguet.`;
 
   // Init lingua
-  setLang('it');
+  setLang(detectLang());
 
   // Init hash router (deferred so page paint completes first)
   setTimeout(handleRoute, 0);
@@ -2214,6 +2229,7 @@ function setLang(lang) {
     if (el) el.classList.toggle('active', id.includes(lang));
   });
   document.documentElement.lang = lang;
+  localStorage.setItem('popmods_lang', lang);
   const banner = document.getElementById('cookie-banner');
   if (banner && banner.style.display !== 'none') {
     setLangOnElement(banner, lang);
@@ -2359,6 +2375,22 @@ function initCardSwipe(imgWrap) {
 //  CART
 // ════════════════════════════════════════════════════════════════
 let _cart = [];
+
+function saveCart() {
+  try {
+    sessionStorage.setItem('popmods_cart', JSON.stringify(_cart));
+  } catch(e) {}
+}
+
+function loadCart() {
+  try {
+    const raw = sessionStorage.getItem('popmods_cart');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) _cart = parsed;
+    }
+  } catch(e) {}
+}
 let _currentProductIdx = null;
 let _galleryImgs = [];
 let _galleryIdx = 0;
@@ -2389,12 +2421,14 @@ function addToCart(idx) {
   void btn.offsetWidth;
   btn.classList.add('pop');
   setTimeout(() => btn.classList.remove('pop'), 400);
+  saveCart();
 }
 
 function removeFromCart(idx) {
   _cart = _cart.filter(item => item.idx !== idx);
   _updateCartCount();
   _renderCartBody();
+  saveCart();
 }
 
 function updateQty(idx, delta) {
@@ -2402,6 +2436,7 @@ function updateQty(idx, delta) {
   if (!item) return;
   item.qty = Math.max(1, item.qty + delta);
   _renderCartBody();
+  saveCart();
 }
 
 function _getCartTotal() {
