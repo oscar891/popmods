@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PopMods — Custom Royal Pop Cases & Bracelets</title>
+  <title>PopMods</title>
   <style id="font-fallback">
     :root {
       --sans: Arial, Helvetica, sans-serif;
@@ -429,6 +429,21 @@ const CONFIG = {
     // es: "https://buy.stripe.com/xxxxxxxx"
     mode: "stripe",            // "stripe" | "disabled"
     currency: "EUR",
+  },
+
+  // ── SEO ───────────────────────────────────────────────────────
+  seo: {
+    site_url:        "https://royalpopwatch.store",
+    title_it:        "PopMods — Kit cassa e bracciale per il Royal Pop",
+    title_en:        "PopMods — Case & Bracelet Kit for the Royal Pop",
+    description_it:  "Kit cassa e bracciale in bioceramic per il Swatch × Audemars Piguet Royal Pop. Due collezioni, 8 colorway, montaggio in 30 secondi senza attrezzi.",
+    description_en:  "Bioceramic case and bracelet kit for the Swatch × Audemars Piguet Royal Pop. Two collections, 8 colorways, 30-second tool-free assembly.",
+    og_image:        "immagini/hero.jpg",   // sostituire con immagine 1200×630 al lancio
+    og_image_alt_it: "PopMods — Kit Royal Pop",
+    og_image_alt_en: "PopMods — Royal Pop Kit",
+    twitter_handle:  "",                    // es: "@popmods" quando disponibile
+    locale_it:       "it_IT",
+    locale_en:       "en_GB",
   },
 
   // ── PROCESSO ──────────────────────────────────────────────────
@@ -1957,7 +1972,67 @@ function setCurrency(c) {
 }
 // ────────────────────────────────────────────────────────────────
 
+function injectMeta() {
+  const s = CONFIG.seo;
+  const b = CONFIG.brand;
+  const lang = (navigator.language || 'it').startsWith('it') ? 'it' : 'en';
+
+  const title       = lang === 'en' ? s.title_en       : s.title_it;
+  const description = lang === 'en' ? s.description_en : s.description_it;
+  const locale      = lang === 'en' ? s.locale_en      : s.locale_it;
+  const ogImageAlt  = lang === 'en' ? s.og_image_alt_en : s.og_image_alt_it;
+  const ogImage     = s.og_image.startsWith('http')
+    ? s.og_image
+    : s.site_url + '/' + s.og_image;
+
+  const tags = [
+    // ── BASE SEO ──
+    { name: 'description',              content: description },
+    { name: 'robots',                   content: 'index, follow' },
+    { name: 'author',                   content: b.nome },
+
+    // ── OPEN GRAPH ──
+    { property: 'og:type',              content: 'website' },
+    { property: 'og:site_name',         content: b.nome },
+    { property: 'og:url',               content: s.site_url },
+    { property: 'og:title',             content: title },
+    { property: 'og:description',       content: description },
+    { property: 'og:image',             content: ogImage },
+    { property: 'og:image:alt',         content: ogImageAlt },
+    { property: 'og:image:width',       content: '1200' },
+    { property: 'og:image:height',      content: '630' },
+    { property: 'og:locale',            content: locale },
+
+    // ── TWITTER / X ──
+    { name: 'twitter:card',             content: 'summary_large_image' },
+    { name: 'twitter:title',            content: title },
+    { name: 'twitter:description',      content: description },
+    { name: 'twitter:image',            content: ogImage },
+    { name: 'twitter:image:alt',        content: ogImageAlt },
+    ...(s.twitter_handle ? [{ name: 'twitter:site', content: s.twitter_handle }] : []),
+  ];
+
+  tags.forEach(t => {
+    const el = document.createElement('meta');
+    if (t.property) el.setAttribute('property', t.property);
+    if (t.name)     el.setAttribute('name', t.name);
+    el.setAttribute('content', t.content);
+    document.head.appendChild(el);
+  });
+
+  // canonical
+  const canonical = document.createElement('link');
+  canonical.rel  = 'canonical';
+  canonical.href = s.site_url;
+  document.head.appendChild(canonical);
+
+  // <title> dinamico
+  document.title = title;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  injectMeta();
+
   const b = CONFIG.brand;
   const h = CONFIG.hero;
   const a = CONFIG.about;
