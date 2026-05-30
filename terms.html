@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termini e Condizioni — PopMods</title>
+  <link rel="canonical" href="https://royalpopwatch.store/terms" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --sans:    "Inter", Arial, sans-serif;
+      --display: "Bricolage Grotesque", "Inter", sans-serif;
+      --black:  #171717;
+      --white:  #F8F4EC;
+      --off:    #FFFDF8;
+      --gray:   #6B6B6B;
+      --border: #E6DDD0;
+      --accent: #FF5FA2;
+      --accent2: #C7FF3D;
+      --accent3: #244CFF;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 72px;
+      background: rgba(248, 244, 236, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 48px; }
+
+    .nav-logo {
+      text-decoration: none;
+      display: inline-flex; align-items: stretch;
+      border: 2.5px solid var(--black);
+      border-radius: 6px;
+      box-shadow: 3px 3px 0 var(--black);
+      overflow: hidden;
+      transition: box-shadow 0.15s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .nav-logo:hover { box-shadow: 5px 5px 0 var(--black); transform: translate(-1px, -1px); }
+
+    .logo-chunk {
+      font-family: var(--display);
+      font-weight: 800; font-size: 16px;
+      letter-spacing: 0.02em;
+      line-height: 1; padding: 7px 11px;
+      color: var(--black); display: flex; align-items: center;
+    }
+    .logo-p  { background: #FF5FA2; }
+    .logo-o1 { background: #C7FF3D; }
+    .logo-p2 { background: #244CFF; color: #fff; }
+    .logo-m  { background: #FFB84D; }
+    .logo-o2 { background: #FF5FA2; }
+    .logo-d  { background: #C7FF3D; }
+    .logo-s  { background: #244CFF; color: #fff; }
+
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+
+    .lang-toggle { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray); padding: 2px 0; transition: color 0.2s;
+    }
+    .lang-btn:hover { color: var(--black); }
+    .lang-btn.active { color: var(--accent); border-bottom: 1.5px solid var(--accent); }
+    .lang-sep { font-size: 11px; color: var(--border); }
+
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 24px; height: 24px;
+      background: none; border: none; cursor: pointer; padding: 0;
+    }
+    .hamburger span {
+      display: block; width: 100%; height: 1.5px;
+      background: var(--black); transition: all 0.3s ease; transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 72px; left: 0; right: 0; bottom: 0;
+      background: var(--white); z-index: 99;
+      flex-direction: column; padding: 40px 32px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-lang { display: flex; gap: 16px; margin-top: 24px; }
+
+    /* ── CONTENUTO ── */
+    .legal-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+
+    .legal-page-title {
+      font-family: var(--display);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .legal-updated {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-section {
+      margin-top: 48px;
+    }
+
+    .legal-section h2 {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .legal-section p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .legal-section ul {
+      list-style: none;
+      margin: 0 0 12px;
+      padding: 0;
+    }
+
+    .legal-section ul li {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #444;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .legal-section ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .legal-section a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      display: inline-block;
+      margin-top: 56px;
+      padding: 14px 36px;
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none;
+      background: transparent;
+      color: var(--black);
+      border: 1.5px solid var(--black);
+      transition: all 0.2s;
+    }
+    .back-btn:hover { background: var(--black); color: var(--white); }
+
+    /* ── FOOTER ── */
+    .legal-footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 80px;
+      font-size: 12px;
+    }
+    .legal-footer-copy { color: #555; }
+    .legal-footer-links { display: flex; gap: 24px; }
+    .legal-footer-links a {
+      color: #888; text-decoration: none;
+      font-size: 12px; transition: color 0.2s;
+    }
+    .legal-footer-links a:hover { color: var(--accent); }
+    .legal-footer-links a.current { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .legal-wrap { padding: 100px 24px 60px; }
+      .legal-footer { padding: 24px 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-chunk logo-p">P</span>
+      <span class="logo-chunk logo-o1">o</span>
+      <span class="logo-chunk logo-p2">p</span>
+      <span class="logo-chunk logo-m">M</span>
+      <span class="logo-chunk logo-o2">o</span>
+      <span class="logo-chunk logo-d">d</span>
+      <span class="logo-chunk logo-s">s</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-lang">
+    <button class="lang-btn active" id="mob-btn-it" onclick="setLang('it'); toggleMenu()">IT</button>
+    <span class="lang-sep">/</span>
+    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
+  </div>
+</div>
+
+<!-- ── CONTENUTO ── -->
+<div class="legal-wrap">
+
+  <!-- Titolo -->
+  <h1 class="legal-page-title it">Termini e Condizioni</h1>
+  <h1 class="legal-page-title en">Terms &amp; Conditions</h1>
+
+  <p class="legal-updated it">Ultimo aggiornamento: giugno 2026</p>
+  <p class="legal-updated en">Last updated: June 2026</p>
+
+  <!-- 1. Venditore -->
+  <div class="legal-section">
+    <h2 class="it">1. Informazioni sul venditore</h2>
+    <h2 class="en">1. Seller information</h2>
+    <p class="it">
+      <strong>PopMods</strong> è un progetto indipendente di accessori aftermarket.<br>
+      Email: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a>
+    </p>
+    <p class="en">
+      <strong>PopMods</strong> is an independent aftermarket accessories project.<br>
+      Email: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a>
+    </p>
+    <p class="it">PopMods non è affiliata, sponsorizzata né approvata da Swatch Group Ltd. o Audemars Piguet. "Royal Pop", "Swatch" e "Audemars Piguet" sono marchi registrati dei rispettivi proprietari, citati esclusivamente per indicare la compatibilità del prodotto.</p>
+    <p class="en">PopMods is not affiliated with, endorsed by, or sponsored by Swatch Group Ltd. or Audemars Piguet. "Royal Pop", "Swatch" and "Audemars Piguet" are trademarks of their respective owners, referenced solely to indicate product compatibility.</p>
+  </div>
+
+  <!-- 2. Prodotti -->
+  <div class="legal-section">
+    <h2 class="it">2. Prodotti</h2>
+    <h2 class="en">2. Products</h2>
+    <ul class="it">
+      <li>I kit PopMods sono accessori aftermarket compatibili con il <strong>Royal Pop 40mm in bioceramic</strong> (tutti gli 8 colorway ufficiali Swatch × Audemars Piguet).</li>
+      <li>La compatibilità è garantita esclusivamente con la versione 40mm bioceramic. PopMods declina ogni responsabilità per utilizzi su altri modelli.</li>
+      <li>Le fotografie dei prodotti sono illustrative. I colori reali possono variare leggermente a seconda del monitor o del dispositivo utilizzato.</li>
+    </ul>
+    <ul class="en">
+      <li>PopMods kits are aftermarket accessories compatible with the <strong>Royal Pop 40mm in bioceramic</strong> (all 8 official Swatch × Audemars Piguet colourways).</li>
+      <li>Compatibility is guaranteed exclusively with the 40mm bioceramic version. PopMods accepts no responsibility for use on other models.</li>
+      <li>Product photographs are for illustrative purposes. Actual colours may vary slightly depending on the monitor or device used.</li>
+    </ul>
+  </div>
+
+  <!-- 3. Prezzi e pagamenti -->
+  <div class="legal-section">
+    <h2 class="it">3. Prezzi e pagamenti</h2>
+    <h2 class="en">3. Prices and payment</h2>
+    <ul class="it">
+      <li>I prezzi sono espressi in <strong>EUR, IVA inclusa</strong>, salvo diversa indicazione.</li>
+      <li>Il pagamento avviene tramite <strong>Stripe</strong> (carte di credito/debito, Apple Pay, Google Pay, PayPal).</li>
+      <li>PopMods non archivia né ha accesso ai dati di pagamento. Il trattamento è interamente gestito da Stripe, Inc., certificata PCI DSS.</li>
+      <li>L'ordine si perfeziona al ricevimento della conferma di pagamento da parte di Stripe.</li>
+    </ul>
+    <ul class="en">
+      <li>Prices are quoted in <strong>EUR, inclusive of VAT</strong>, unless otherwise stated.</li>
+      <li>Payment is processed via <strong>Stripe</strong> (credit/debit cards, Apple Pay, Google Pay, PayPal).</li>
+      <li>PopMods does not store or have access to payment data. All processing is handled entirely by Stripe, Inc., PCI DSS certified.</li>
+      <li>The order is confirmed upon receipt of payment confirmation from Stripe.</li>
+    </ul>
+  </div>
+
+  <!-- 4. Spedizioni -->
+  <div class="legal-section">
+    <h2 class="it">4. Spedizioni</h2>
+    <h2 class="en">4. Shipping</h2>
+    <ul class="it">
+      <li>Spedizione entro <strong>48 ore lavorative</strong> dalla conferma dell'ordine.</li>
+      <li><strong>Europa</strong>: 3–5 giorni lavorativi.</li>
+      <li><strong>Extra-UE</strong>: 7–14 giorni lavorativi (eventuali dazi doganali sono a carico dell'acquirente).</li>
+      <li>Ogni spedizione include codice di tracking.</li>
+      <li>In caso di mancata consegna per indirizzo errato fornito dal cliente, i costi di rispedizione sono a carico dell'acquirente.</li>
+    </ul>
+    <ul class="en">
+      <li>Dispatch within <strong>48 working hours</strong> of order confirmation.</li>
+      <li><strong>Europe</strong>: 3–5 working days.</li>
+      <li><strong>Outside the EU</strong>: 7–14 working days (any customs duties are the buyer's responsibility).</li>
+      <li>Every shipment includes a tracking code.</li>
+      <li>If delivery fails due to an incorrect address provided by the customer, reshipping costs are the buyer's responsibility.</li>
+    </ul>
+  </div>
+
+  <!-- 5. Diritto di recesso -->
+  <div class="legal-section">
+    <h2 class="it">5. Diritto di recesso (art. 52 D.Lgs. 206/2005)</h2>
+    <h2 class="en">5. Right of withdrawal (Art. 52 Consumer Code)</h2>
+    <p class="it">Hai il diritto di recedere dal contratto entro <strong>14 giorni</strong> dalla ricezione del prodotto, senza necessità di fornire motivazioni.</p>
+    <p class="en">You have the right to withdraw from the contract within <strong>14 days</strong> of receiving the product, without providing any reason.</p>
+    <ul class="it">
+      <li>Per esercitare il recesso, invia una comunicazione scritta a <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a> prima della scadenza del termine.</li>
+      <li>Il prodotto deve essere restituito nelle <strong>condizioni originali</strong>, integro e con imballo originale.</li>
+      <li>Le spese di restituzione sono a carico del cliente, salvo accordo diverso.</li>
+      <li>Il rimborso verrà effettuato entro <strong>14 giorni</strong> dalla ricezione del reso, tramite lo stesso metodo di pagamento utilizzato.</li>
+    </ul>
+    <ul class="en">
+      <li>To exercise the right of withdrawal, send a written notice to <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a> before the deadline.</li>
+      <li>The product must be returned in its <strong>original condition</strong>, intact and in its original packaging.</li>
+      <li>Return shipping costs are the customer's responsibility, unless otherwise agreed.</li>
+      <li>The refund will be issued within <strong>14 days</strong> of receiving the return, via the same payment method used.</li>
+    </ul>
+  </div>
+
+  <!-- 6. Garanzia legale -->
+  <div class="legal-section">
+    <h2 class="it">6. Garanzia legale di conformità (artt. 128–135 D.Lgs. 206/2005)</h2>
+    <h2 class="en">6. Legal guarantee of conformity (Arts. 128–135 Consumer Code)</h2>
+    <p class="it">I prodotti PopMods sono coperti dalla <strong>garanzia legale di conformità di 2 anni</strong> dalla data di consegna, come previsto dal Codice del Consumo italiano.</p>
+    <p class="en">PopMods products are covered by the <strong>2-year legal guarantee of conformity</strong> from the date of delivery, as required by the Italian Consumer Code.</p>
+    <p class="it">Per attivare la garanzia, contatta <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a> con la descrizione del difetto e la prova d'acquisto.</p>
+    <p class="en">To activate the guarantee, contact <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a> with a description of the defect and proof of purchase.</p>
+  </div>
+
+  <!-- 7. Garanzia commerciale -->
+  <div class="legal-section">
+    <h2 class="it">7. Garanzia commerciale PopMods</h2>
+    <h2 class="en">7. PopMods commercial warranty</h2>
+    <p class="it">In aggiunta alla garanzia legale, PopMods offre una <strong>garanzia commerciale di 12 mesi</strong> per difetti di produzione (crepe, distacchi, difetti di finitura) verificatisi in condizioni di uso normale.</p>
+    <p class="en">In addition to the legal guarantee, PopMods offers a <strong>12-month commercial warranty</strong> covering manufacturing defects (cracks, delamination, finish defects) occurring under normal use conditions.</p>
+    <ul class="it">
+      <li>Esclusi: danni da cadute, urti, immersione prolungata in acqua, uso improprio o modifiche non autorizzate.</li>
+      <li>Per attivare la garanzia: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a>.</li>
+    </ul>
+    <ul class="en">
+      <li>Excluded: damage from drops, impacts, prolonged water immersion, misuse, or unauthorised modifications.</li>
+      <li>To activate the warranty: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a>.</li>
+    </ul>
+  </div>
+
+  <!-- 8. Limitazione di responsabilità -->
+  <div class="legal-section">
+    <h2 class="it">8. Limitazione di responsabilità</h2>
+    <h2 class="en">8. Limitation of liability</h2>
+    <p class="it">PopMods non è responsabile per danni indiretti, consequenziali o accessori derivanti dall'uso o dall'impossibilità di utilizzare i prodotti. La responsabilità massima di PopMods è in ogni caso limitata al <strong>valore dell'ordine</strong> effettuato dall'acquirente.</p>
+    <p class="en">PopMods shall not be liable for indirect, consequential or incidental damages arising from the use or inability to use the products. PopMods' maximum liability is in any case limited to the <strong>value of the order</strong> placed by the buyer.</p>
+    <p class="it">Nulla di quanto previsto dai presenti Termini limita i diritti dei consumatori previsti dalla normativa inderogabile applicabile.</p>
+    <p class="en">Nothing in these Terms limits consumer rights under applicable mandatory law.</p>
+  </div>
+
+  <!-- 9. Proprietà intellettuale -->
+  <div class="legal-section">
+    <h2 class="it">9. Proprietà intellettuale</h2>
+    <h2 class="en">9. Intellectual property</h2>
+    <p class="it">"Royal Pop", "Swatch" e "Audemars Piguet" sono marchi registrati dei rispettivi proprietari. Il loro utilizzo in questo sito è esclusivamente descrittivo e finalizzato a indicare la compatibilità dei prodotti PopMods. PopMods non rivendica alcun diritto su tali marchi.</p>
+    <p class="en">"Royal Pop", "Swatch" and "Audemars Piguet" are registered trademarks of their respective owners. Their use on this site is solely descriptive and intended to indicate the compatibility of PopMods products. PopMods claims no rights to these trademarks.</p>
+    <p class="it">Il nome "PopMods", il logo e i contenuti originali del sito sono di proprietà del progetto PopMods.</p>
+    <p class="en">The name "PopMods", the logo and the original content of the site are the property of the PopMods project.</p>
+  </div>
+
+  <!-- 10. Legge applicabile -->
+  <div class="legal-section">
+    <h2 class="it">10. Legge applicabile e foro competente</h2>
+    <h2 class="en">10. Governing law and jurisdiction</h2>
+    <p class="it">I presenti Termini sono regolati dalla <strong>legge italiana</strong>. Per le controversie con consumatori, è competente il tribunale del luogo di residenza o domicilio del consumatore. Per le controversie tra professionisti, il foro competente è quello di <strong>Milano</strong>.</p>
+    <p class="en">These Terms are governed by <strong>Italian law</strong>. For disputes with consumers, jurisdiction lies with the court of the consumer's place of residence or domicile. For disputes between businesses, the competent court is <strong>Milan</strong>.</p>
+  </div>
+
+  <!-- 11. ODR -->
+  <div class="legal-section">
+    <h2 class="it">11. Risoluzione alternativa delle controversie (ODR)</h2>
+    <h2 class="en">11. Alternative dispute resolution (ODR)</h2>
+    <p class="it">Ai sensi del Regolamento UE 524/2013, i consumatori UE possono utilizzare la <strong>piattaforma europea di risoluzione online delle controversie</strong>:</p>
+    <p class="en">Pursuant to EU Regulation 524/2013, EU consumers may use the <strong>European Online Dispute Resolution platform</strong>:</p>
+    <p><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a></p>
+    <p class="it">Email di contatto per ODR: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a></p>
+    <p class="en">ODR contact email: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a></p>
+  </div>
+
+  <!-- 12. Aggiornamenti -->
+  <div class="legal-section">
+    <h2 class="it">12. Aggiornamenti ai Termini</h2>
+    <h2 class="en">12. Updates to these Terms</h2>
+    <p class="it">PopMods si riserva il diritto di modificare i presenti Termini in qualsiasi momento. La data dell'ultimo aggiornamento è indicata in cima alla pagina. Le modifiche entrano in vigore dalla data di pubblicazione e si applicano agli ordini effettuati successivamente.</p>
+    <p class="en">PopMods reserves the right to modify these Terms at any time. The date of the last update is shown at the top of this page. Changes take effect from the date of publication and apply to orders placed thereafter.</p>
+  </div>
+
+  <a href="index.html" class="back-btn it">← Torna allo store</a>
+  <a href="index.html" class="back-btn en">← Back to store</a>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="legal-footer">
+  <span class="legal-footer-copy it">© 2026 PopMods. Tutti i diritti riservati.</span>
+  <span class="legal-footer-copy en">© 2026 PopMods. All rights reserved.</span>
+  <div class="legal-footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html" class="current">
+      <span class="it-inline">Termini e condizioni</span>
+      <span class="en-inline">Terms &amp; Conditions</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  const isEN = lang === 'en';
+  document.querySelectorAll('.it').forEach(el => el.style.display = isEN ? 'none' : 'block');
+  document.querySelectorAll('.en').forEach(el => el.style.display = isEN ? 'block' : 'none');
+  document.querySelectorAll('.it-inline').forEach(el => el.style.display = isEN ? 'none' : 'inline');
+  document.querySelectorAll('.en-inline').forEach(el => el.style.display = isEN ? 'inline' : 'none');
+  ['btn-it','btn-en','mob-btn-it','mob-btn-en'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('active', id.includes(lang));
+  });
+  document.documentElement.lang = lang;
+  try { localStorage.setItem('popmods_lang', lang); } catch(e) {}
+}
+
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+// Ripristina lingua salvata
+(function() {
+  try {
+    const stored = localStorage.getItem('popmods_lang');
+    if (stored === 'en' || stored === 'it') setLang(stored);
+    else setLang('it');
+  } catch(e) { setLang('it'); }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PopMods</title>
+  <link rel="canonical" href="https://royalpopwatch.store/privacy" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --sans:    "Inter", Arial, sans-serif;
+      --display: "Bricolage Grotesque", "Inter", sans-serif;
+      --black:  #171717;
+      --white:  #F8F4EC;
+      --off:    #FFFDF8;
+      --gray:   #6B6B6B;
+      --border: #E6DDD0;
+      --accent: #FF5FA2;
+      --accent2: #C7FF3D;
+      --accent3: #244CFF;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 72px;
+      background: rgba(248, 244, 236, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 48px; }
+
+    .nav-logo {
+      text-decoration: none;
+      display: inline-flex; align-items: stretch;
+      border: 2.5px solid var(--black);
+      border-radius: 6px;
+      box-shadow: 3px 3px 0 var(--black);
+      overflow: hidden;
+      transition: box-shadow 0.15s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .nav-logo:hover { box-shadow: 5px 5px 0 var(--black); transform: translate(-1px, -1px); }
+
+    .logo-chunk {
+      font-family: var(--display);
+      font-weight: 800; font-size: 16px;
+      letter-spacing: 0.02em;
+      line-height: 1; padding: 7px 11px;
+      color: var(--black); display: flex; align-items: center;
+    }
+    .logo-p  { background: #FF5FA2; }
+    .logo-o1 { background: #C7FF3D; }
+    .logo-p2 { background: #244CFF; color: #fff; }
+    .logo-m  { background: #FFB84D; }
+    .logo-o2 { background: #FF5FA2; }
+    .logo-d  { background: #C7FF3D; }
+    .logo-s  { background: #244CFF; color: #fff; }
+
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+
+    .lang-toggle { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray); padding: 2px 0; transition: color 0.2s;
+    }
+    .lang-btn:hover { color: var(--black); }
+    .lang-btn.active { color: var(--accent); border-bottom: 1.5px solid var(--accent); }
+    .lang-sep { font-size: 11px; color: var(--border); }
+
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 24px; height: 24px;
+      background: none; border: none; cursor: pointer; padding: 0;
+    }
+    .hamburger span {
+      display: block; width: 100%; height: 1.5px;
+      background: var(--black); transition: all 0.3s ease; transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 72px; left: 0; right: 0; bottom: 0;
+      background: var(--white); z-index: 99;
+      flex-direction: column; padding: 40px 32px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-lang { display: flex; gap: 16px; margin-top: 24px; }
+
+    /* ── CONTENUTO ── */
+    .legal-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+    }
+
+    .legal-page-title {
+      font-family: var(--display);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .legal-updated {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-section {
+      margin-top: 48px;
+    }
+
+    .legal-section h2 {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .legal-section p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .legal-section ul {
+      list-style: none;
+      margin: 0 0 12px;
+      padding: 0;
+    }
+
+    .legal-section ul li {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #444;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .legal-section ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .legal-section a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      display: inline-block;
+      margin-top: 56px;
+      padding: 14px 36px;
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none;
+      background: transparent;
+      color: var(--black);
+      border: 1.5px solid var(--black);
+      transition: all 0.2s;
+    }
+    .back-btn:hover { background: var(--black); color: var(--white); }
+
+    /* ── FOOTER ── */
+    .legal-footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 80px;
+      font-size: 12px;
+    }
+    .legal-footer-copy { color: #555; }
+    .legal-footer-links { display: flex; gap: 24px; }
+    .legal-footer-links a {
+      color: #888; text-decoration: none;
+      font-size: 12px; transition: color 0.2s;
+    }
+    .legal-footer-links a:hover { color: var(--accent); }
+    .legal-footer-links a.current { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .legal-wrap { padding: 100px 24px 60px; }
+      .legal-footer { padding: 24px 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-chunk logo-p">P</span>
+      <span class="logo-chunk logo-o1">o</span>
+      <span class="logo-chunk logo-p2">p</span>
+      <span class="logo-chunk logo-m">M</span>
+      <span class="logo-chunk logo-o2">o</span>
+      <span class="logo-chunk logo-d">d</span>
+      <span class="logo-chunk logo-s">s</span>
+    </a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-lang">
+    <button class="lang-btn active" id="mob-btn-it" onclick="setLang('it'); toggleMenu()">IT</button>
+    <span class="lang-sep">/</span>
+    <button class="lang-btn" id="mob-btn-en" onclick="setLang('en'); toggleMenu()">EN</button>
+  </div>
+</div>
+
+<!-- ── CONTENUTO ── -->
+<div class="legal-wrap">
+
+  <!-- Titolo IT -->
+  <h1 class="legal-page-title it">Privacy Policy</h1>
+  <h1 class="legal-page-title en">Privacy Policy</h1>
+
+  <p class="legal-updated it">Ultimo aggiornamento: giugno 2026</p>
+  <p class="legal-updated en">Last updated: June 2026</p>
+
+  <!-- 1. Titolare -->
+  <div class="legal-section">
+    <h2 class="it">1. Titolare del trattamento</h2>
+    <h2 class="en">1. Data Controller</h2>
+    <p class="it">
+      Il titolare del trattamento è <strong>PopMods</strong>, progetto indipendente di accessori aftermarket.<br>
+      Email: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a>
+    </p>
+    <p class="en">
+      The data controller is <strong>PopMods</strong>, an independent aftermarket accessories project.<br>
+      Email: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a>
+    </p>
+  </div>
+
+  <!-- 2. Dati raccolti -->
+  <div class="legal-section">
+    <h2 class="it">2. Dati raccolti e finalità</h2>
+    <h2 class="en">2. Data collected and purposes</h2>
+    <p class="it">Raccogliamo le seguenti categorie di dati:</p>
+    <p class="en">We collect the following categories of data:</p>
+    <ul class="it">
+      <li><strong>Dati di navigazione</strong> — indirizzo IP, tipo di browser, pagine visitate, orari di accesso. Raccolti automaticamente per garantire il funzionamento del sito e la sicurezza.</li>
+      <li><strong>Dati forniti volontariamente</strong> — nome, indirizzo email, indirizzo di spedizione inseriti in fase di ordine. Utilizzati esclusivamente per l'evasione degli ordini.</li>
+      <li><strong>Dati di pagamento</strong> — trattati integralmente da Stripe, Inc. PopMods non archivia né ha accesso ai numeri di carta di credito o ai dati bancari.</li>
+    </ul>
+    <ul class="en">
+      <li><strong>Browsing data</strong> — IP address, browser type, pages visited, access times. Collected automatically to ensure site operation and security.</li>
+      <li><strong>Voluntarily provided data</strong> — name, email address, shipping address entered during checkout. Used solely to fulfil orders.</li>
+      <li><strong>Payment data</strong> — processed entirely by Stripe, Inc. PopMods does not store or access credit card numbers or banking details.</li>
+    </ul>
+  </div>
+
+  <!-- 3. Base giuridica -->
+  <div class="legal-section">
+    <h2 class="it">3. Base giuridica del trattamento</h2>
+    <h2 class="en">3. Legal basis for processing</h2>
+    <ul class="it">
+      <li><strong>Esecuzione del contratto</strong> (art. 6(1)(b) GDPR) — elaborazione degli ordini e gestione delle spedizioni.</li>
+      <li><strong>Consenso</strong> (art. 6(1)(a) GDPR) — comunicazioni di marketing, se applicabile e previo consenso esplicito.</li>
+      <li><strong>Legittimo interesse</strong> (art. 6(1)(f) GDPR) — sicurezza del sito e prevenzione delle frodi.</li>
+      <li><strong>Obbligo legale</strong> (art. 6(1)(c) GDPR) — conservazione dei dati fiscali ai sensi della normativa italiana.</li>
+    </ul>
+    <ul class="en">
+      <li><strong>Contract performance</strong> (Art. 6(1)(b) GDPR) — order processing and shipment management.</li>
+      <li><strong>Consent</strong> (Art. 6(1)(a) GDPR) — marketing communications, where applicable and with explicit consent.</li>
+      <li><strong>Legitimate interest</strong> (Art. 6(1)(f) GDPR) — website security and fraud prevention.</li>
+      <li><strong>Legal obligation</strong> (Art. 6(1)(c) GDPR) — retention of fiscal data under Italian law.</li>
+    </ul>
+  </div>
+
+  <!-- 4. Conservazione -->
+  <div class="legal-section">
+    <h2 class="it">4. Conservazione dei dati</h2>
+    <h2 class="en">4. Data retention</h2>
+    <ul class="it">
+      <li><strong>Dati degli ordini</strong> — conservati per 10 anni in adempimento agli obblighi fiscali previsti dalla normativa italiana (D.P.R. 633/1972).</li>
+      <li><strong>Dati di navigazione</strong> — conservati per la sola durata della sessione oppure fino a revoca del consenso, ove applicabile.</li>
+      <li><strong>Dati di marketing</strong> — conservati fino a revoca del consenso.</li>
+    </ul>
+    <ul class="en">
+      <li><strong>Order data</strong> — retained for 10 years to comply with Italian fiscal obligations (D.P.R. 633/1972).</li>
+      <li><strong>Browsing data</strong> — retained for the session duration only, or until consent is withdrawn where applicable.</li>
+      <li><strong>Marketing data</strong> — retained until consent is withdrawn.</li>
+    </ul>
+  </div>
+
+  <!-- 5. Diritti -->
+  <div class="legal-section">
+    <h2 class="it">5. Diritti dell'interessato (artt. 15–22 GDPR)</h2>
+    <h2 class="en">5. Data subject rights (Arts. 15–22 GDPR)</h2>
+    <p class="it">Hai il diritto di:</p>
+    <p class="en">You have the right to:</p>
+    <ul class="it">
+      <li><strong>Accesso</strong> — ottenere conferma del trattamento e copia dei tuoi dati (art. 15).</li>
+      <li><strong>Rettifica</strong> — correggere dati inesatti o incompleti (art. 16).</li>
+      <li><strong>Cancellazione</strong> — richiedere la cancellazione dei dati ("diritto all'oblio"), salvo obblighi di legge (art. 17).</li>
+      <li><strong>Limitazione</strong> — limitare il trattamento in determinate circostanze (art. 18).</li>
+      <li><strong>Portabilità</strong> — ricevere i tuoi dati in formato strutturato e leggibile da macchina (art. 20).</li>
+      <li><strong>Opposizione</strong> — opporsi al trattamento basato su legittimo interesse (art. 21).</li>
+    </ul>
+    <ul class="en">
+      <li><strong>Access</strong> — obtain confirmation of processing and a copy of your data (Art. 15).</li>
+      <li><strong>Rectification</strong> — correct inaccurate or incomplete data (Art. 16).</li>
+      <li><strong>Erasure</strong> — request deletion of your data ("right to be forgotten"), subject to legal obligations (Art. 17).</li>
+      <li><strong>Restriction</strong> — restrict processing in certain circumstances (Art. 18).</li>
+      <li><strong>Portability</strong> — receive your data in a structured, machine-readable format (Art. 20).</li>
+      <li><strong>Objection</strong> — object to processing based on legitimate interest (Art. 21).</li>
+    </ul>
+    <p class="it">Per esercitare i tuoi diritti: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a></p>
+    <p class="en">To exercise your rights: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a></p>
+  </div>
+
+  <!-- 6. Cookie -->
+  <div class="legal-section">
+    <h2 class="it">6. Cookie</h2>
+    <h2 class="en">6. Cookies</h2>
+    <ul class="it">
+      <li><strong>Cookie tecnici</strong> — necessari al funzionamento del sito (es. preferenze lingua, sessione carrello). Non richiedono consenso.</li>
+      <li><strong>Google Fonts</strong> — il sito carica font tramite i server di Google, il che comporta il trasferimento dell'indirizzo IP a Google Inc. Nessun cookie di profilazione viene installato da questa operazione.</li>
+      <li><strong>Cookie di profilazione</strong> — al momento non utilizzati.</li>
+    </ul>
+    <ul class="en">
+      <li><strong>Technical cookies</strong> — necessary for site operation (e.g. language preferences, cart session). No consent required.</li>
+      <li><strong>Google Fonts</strong> — the site loads fonts via Google servers, which involves transferring your IP address to Google Inc. No profiling cookies are set by this operation.</li>
+      <li><strong>Profiling cookies</strong> — not currently in use.</li>
+    </ul>
+  </div>
+
+  <!-- 7. Trasferimenti extra-UE -->
+  <div class="legal-section">
+    <h2 class="it">7. Trasferimenti extra-UE</h2>
+    <h2 class="en">7. Transfers outside the EU</h2>
+    <p class="it">
+      Google Fonts opera su server situati negli Stati Uniti. Il trasferimento è coperto dal <strong>Data Privacy Framework UE–USA</strong> (adeguatezza ai sensi dell'art. 45 GDPR), che garantisce un livello di protezione equivalente a quello europeo.
+    </p>
+    <p class="en">
+      Google Fonts operates on servers located in the United States. The transfer is covered by the <strong>EU–US Data Privacy Framework</strong> (adequacy decision under Art. 45 GDPR), which ensures a level of protection equivalent to that in Europe.
+    </p>
+    <p class="it">Stripe, Inc. è certificata ai sensi dello stesso framework e opera nel rispetto del GDPR per i trasferimenti di dati di pagamento.</p>
+    <p class="en">Stripe, Inc. is certified under the same framework and operates in compliance with GDPR for payment data transfers.</p>
+  </div>
+
+  <!-- 8. Contatti -->
+  <div class="legal-section">
+    <h2 class="it">8. Contatti per l'esercizio dei diritti</h2>
+    <h2 class="en">8. Contact for exercising rights</h2>
+    <p class="it">Per qualsiasi richiesta relativa al trattamento dei tuoi dati personali, scrivi a: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a></p>
+    <p class="en">For any request relating to the processing of your personal data, write to: <a href="mailto:{{BRAND_EMAIL}}">{{BRAND_EMAIL}}</a></p>
+    <p class="it">Hai inoltre il diritto di proporre reclamo all'<strong>Autorità Garante per la protezione dei dati personali</strong> (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">garanteprivacy.it</a>).</p>
+    <p class="en">You also have the right to lodge a complaint with the <strong>Italian Data Protection Authority</strong> (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">garanteprivacy.it</a>).</p>
+  </div>
+
+  <!-- 9. Aggiornamenti -->
+  <div class="legal-section">
+    <h2 class="it">9. Aggiornamenti alla policy</h2>
+    <h2 class="en">9. Updates to this policy</h2>
+    <p class="it">La presente Privacy Policy può essere aggiornata periodicamente per riflettere modifiche normative o operative. La data dell'ultimo aggiornamento è indicata in cima alla pagina. In caso di modifiche sostanziali, ti informeremo via email se hai effettuato un ordine.</p>
+    <p class="en">This Privacy Policy may be updated periodically to reflect legal or operational changes. The date of the last update is shown at the top of this page. In case of material changes, we will notify you by email if you have placed an order.</p>
+  </div>
+
+  <a href="index.html" class="back-btn it">← Torna allo store</a>
+  <a href="index.html" class="back-btn en">← Back to store</a>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="legal-footer">
+  <span class="legal-footer-copy it">© 2026 PopMods. Tutti i diritti riservati.</span>
+  <span class="legal-footer-copy en">© 2026 PopMods. All rights reserved.</span>
+  <div class="legal-footer-links">
+    <a href="privacy.html" class="current">Privacy Policy</a>
+    <a href="terms.html">
+      <span class="it-inline">Termini e condizioni</span>
+      <span class="en-inline">Terms &amp; Conditions</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  const isEN = lang === 'en';
+  document.querySelectorAll('.it').forEach(el => el.style.display = isEN ? 'none' : 'block');
+  document.querySelectorAll('.en').forEach(el => el.style.display = isEN ? 'block' : 'none');
+  document.querySelectorAll('.it-inline').forEach(el => el.style.display = isEN ? 'none' : 'inline');
+  document.querySelectorAll('.en-inline').forEach(el => el.style.display = isEN ? 'inline' : 'none');
+  ['btn-it','btn-en','mob-btn-it','mob-btn-en'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('active', id.includes(lang));
+  });
+  document.documentElement.lang = lang;
+  try { localStorage.setItem('popmods_lang', lang); } catch(e) {}
+}
+
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+// Ripristina lingua salvata
+(function() {
+  try {
+    const stored = localStorage.getItem('popmods_lang');
+    if (stored === 'en' || stored === 'it') setLang(stored);
+    else setLang('it');
+  } catch(e) { setLang('it'); }
+})();
+</script>
+
+</body>
+</html>
