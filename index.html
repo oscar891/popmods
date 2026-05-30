@@ -4,11 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PopMods — Custom Royal Pop Cases & Bracelets</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style id="font-fallback">
+    :root {
+      --sans: Arial, Helvetica, sans-serif;
+      --display: Georgia, serif;
+    }
+  </style>
 </head>
 <body>
+
+<!-- ── COOKIE CONSENT BANNER ── -->
+<div id="cookie-banner" style="display:none;">
+  <div class="cb-inner">
+    <div class="cb-text">
+      <p class="cb-title">
+        <span class="it-inline">Questo sito usa cookie tecnici.</span>
+        <span class="en-inline">This site uses technical cookies.</span>
+      </p>
+      <p class="cb-desc">
+        <span class="it-inline">
+          Utilizziamo Google Fonts, un servizio di Google LLC (USA), che
+          trasferisce il tuo indirizzo IP ai server Google al caricamento
+          della pagina. Accettando, consenti questo trasferimento.
+          Rifiutando, il sito funziona con font di sistema.
+          <a href="privacy.html" target="_blank">Privacy Policy</a>
+        </span>
+        <span class="en-inline">
+          We use Google Fonts, a service by Google LLC (USA), which
+          transfers your IP address to Google servers on page load.
+          By accepting, you consent to this transfer.
+          By declining, the site works with system fonts.
+          <a href="privacy.html" target="_blank">Privacy Policy</a>
+        </span>
+      </p>
+    </div>
+    <div class="cb-actions">
+      <button class="cb-decline" onclick="cookieDecline()">
+        <span class="it-inline">Rifiuta</span>
+        <span class="en-inline">Decline</span>
+      </button>
+      <button class="cb-accept" onclick="cookieAccept()">
+        <span class="it-inline">Accetta</span>
+        <span class="en-inline">Accept</span>
+      </button>
+    </div>
+  </div>
+</div>
 
 <!--
 ╔══════════════════════════════════════════════════════════════════╗
@@ -1555,6 +1596,58 @@ const CONFIG = {
   }
   .pp-add-cart:hover { background: #e04090; }
   .pp-pay-row { display: flex; justify-content: center; }
+
+  /* ── COOKIE CONSENT BANNER ── */
+  #cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: var(--black);
+    border-top: 1px solid #2a2a2a;
+    padding: 20px 40px;
+  }
+  .cb-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 32px;
+    flex-wrap: wrap;
+  }
+  .cb-title {
+    font-size: 13px; font-weight: 600;
+    color: var(--white); margin-bottom: 4px;
+  }
+  .cb-desc {
+    font-size: 12px; color: #888; line-height: 1.6;
+  }
+  .cb-desc a {
+    color: var(--accent); text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .cb-actions {
+    display: flex; gap: 12px; flex-shrink: 0;
+  }
+  .cb-decline {
+    background: none; border: 1.5px solid #444;
+    color: #888; padding: 10px 24px;
+    font-family: var(--sans); font-size: 11px;
+    font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; cursor: pointer;
+    transition: all 0.2s; border-radius: 2px;
+  }
+  .cb-decline:hover { border-color: #888; color: var(--white); }
+  .cb-accept {
+    background: var(--accent); border: none; color: #fff;
+    padding: 10px 24px; font-family: var(--sans);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s; border-radius: 2px;
+  }
+  .cb-accept:hover { background: #e04090; }
+  @media (max-width: 768px) {
+    #cookie-banner { padding: 20px 24px; }
+    .cb-inner { flex-direction: column; gap: 16px; }
+    .cb-actions { width: 100%; }
+    .cb-decline, .cb-accept { flex: 1; text-align: center; }
+  }
 </style>
 
 <!-- ── NAVBAR ── -->
@@ -1818,6 +1911,27 @@ const CONFIG = {
 //  MOTORE
 // ════════════════════════════════════════════════════════════════
 
+// ── Google Fonts (caricati solo dopo consenso) ──────────────────
+function loadFonts() {
+  // rimuove fallback
+  const fallback = document.getElementById('font-fallback');
+  if (fallback) fallback.remove();
+  // inietta Google Fonts
+  const preconn1 = document.createElement('link');
+  preconn1.rel = 'preconnect';
+  preconn1.href = 'https://fonts.googleapis.com';
+  document.head.appendChild(preconn1);
+  const preconn2 = document.createElement('link');
+  preconn2.rel = 'preconnect';
+  preconn2.href = 'https://fonts.gstatic.com';
+  preconn2.crossOrigin = '';
+  document.head.appendChild(preconn2);
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap';
+  document.head.appendChild(link);
+}
+
 // ── Currency ────────────────────────────────────────────────────
 let _currentCurrency = 'EUR';
 let _eurUsdRate = 1.09; // fallback
@@ -2008,6 +2122,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Init hash router (deferred so page paint completes first)
   setTimeout(handleRoute, 0);
+
+  // Init cookie consent banner
+  initCookieBanner();
 });
 
 // ── LINGUA ──
@@ -2022,6 +2139,53 @@ function setLang(lang) {
     if (el) el.classList.toggle('active', id.includes(lang));
   });
   document.documentElement.lang = lang;
+  const banner = document.getElementById('cookie-banner');
+  if (banner && banner.style.display !== 'none') {
+    setLangOnElement(banner, lang);
+  }
+}
+
+// ── COOKIE CONSENT ──────────────────────────────────────────────
+const COOKIE_KEY = 'popmods_cookie_consent';
+
+function cookieAccept() {
+  localStorage.setItem(COOKIE_KEY, 'accepted');
+  document.getElementById('cookie-banner').style.display = 'none';
+  loadFonts();
+}
+
+function cookieDecline() {
+  localStorage.setItem(COOKIE_KEY, 'declined');
+  document.getElementById('cookie-banner').style.display = 'none';
+  // font di sistema già attivi — non caricare Google Fonts
+}
+
+function initCookieBanner() {
+  const consent = localStorage.getItem(COOKIE_KEY);
+  if (consent === 'accepted') {
+    loadFonts();
+    return;
+  }
+  if (consent === 'declined') {
+    return; // font di sistema, nessun banner
+  }
+  // nessuna scelta precedente — mostra banner
+  const banner = document.getElementById('cookie-banner');
+  banner.style.display = 'block';
+  // applica lingua corrente al banner
+  const lang = document.documentElement.lang || 'it';
+  setLangOnElement(banner, lang);
+}
+
+// helper per applicare la lingua a un elemento specifico
+function setLangOnElement(el, lang) {
+  const isEN = lang === 'en';
+  el.querySelectorAll('.it-inline').forEach(e =>
+    e.style.display = isEN ? 'none' : 'inline'
+  );
+  el.querySelectorAll('.en-inline').forEach(e =>
+    e.style.display = isEN ? 'inline' : 'none'
+  );
 }
 
 // ── HERO MEDIA ──
